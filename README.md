@@ -1,6 +1,11 @@
 # BreakOut3D
 Recreación del juego BreakOut en 3D como proyecto académico de la clase de Desarrollo de Videojuegos 2D y 3D
 
+## ❓ Preguntas y dudas
+
+Si en algún momento tienes dudas sobre el flujo de trabajo, cómo hacer commits, crear ramas o Pull Requests: **PREGUNTEN!**  
+Es mejor preguntar y resolver de inmediato que quedarse con la duda
+
 ## ⚠️ SUPERMEGA IMPORTANTE
 **Antes de empezar a trabajar en cualquier funcionalidad, cada integrante debe clonar el repositorio en su máquina local usando GitHub Desktop y la URL del proyecto.**  
 De esta forma todos tendrán la misma base y podrán sincronizar sus cambios correctamente.
