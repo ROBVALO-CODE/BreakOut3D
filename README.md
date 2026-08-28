@@ -74,16 +74,16 @@ Implementar un juego estilo BreakOut en 3D con:
 Para mantener el historial del proyecto ordenado, cada integrante debe escribir mensajes de commit claros usando prefijos estándar:
 
 - **feat:** cuando agregues una nueva funcionalidad
-  Ejemplo:→ feat: implementar movimiento del paddle
+  Ejemplo:→ feat: implemente movimiento del paddle
 
 - **fix:** cuando corrijas un error o bug
-Ejemplo → fix: corregir rebote de la bola
+Ejemplo → fix: corregi rebote de la bola
 
 - **docs:** cuando edites documentación (README, guías, etc...)
-Ejemplo → docs: agregar instrucciones de flujo de trabajo al README
+Ejemplo → docs: agrege instrucciones de flujo de trabajo al README
 
 - **chore:** para cambios menores de mantenimiento (mover archivos etc..)
-Ejemplo → chore: reorganizar carpeta de assets
+Ejemplo → chore: reorganize carpeta de assets
 
 **REGLA GENERAL: el mensaje debe ser **breve pero específico**. No basta con poner “cambios” o “update”**
 
@@ -99,7 +99,7 @@ Usa un prefijo claro según el tipo de cambio:
 - `docs:` documentación
 - `chore:` mantenimiento
 
-Ejemplo: feat: implementar movimiento del paddle
+Ejemplo: feat: se implemento el movimiento del paddle
 
 ### Descripción
 Explica brevemente qué hiciste y por qué:
