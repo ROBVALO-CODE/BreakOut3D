@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://gft3k7plcg38"]
 
+[ext_resource type="Script" uid="uid://luox73owbusa" path="res://Scripts/hud.gd" id="1_8vcfy"]
 [ext_resource type="Texture2D" uid="uid://csosxretd1yce" path="res://Materials/Hud/Pelota.png" id="1_chfh5"]
 
 [node name="Hud" type="Control" unique_id=1790039073]
@@ -7,16 +8,19 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_8vcfy")
 
 [node name="Label" type="Label" parent="." unique_id=85771674]
+texture_filter = 1
 layout_mode = 0
-offset_left = 66.0
-offset_top = 6.0
-offset_right = 108.0
-offset_bottom = 57.0
-theme_override_font_sizes/font_size = 37
+offset_left = 109.0
+offset_top = -4.0
+offset_right = 176.0
+offset_bottom = 79.0
+theme_override_font_sizes/font_size = 60
 text = "x3"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1032332441]
-position = Vector2(36, 35)
+position = Vector2(62.18, 48)
+scale = Vector2(0.12, 0.128)
 texture = ExtResource("1_chfh5")
