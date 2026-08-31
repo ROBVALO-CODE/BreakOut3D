@@ -48,6 +48,7 @@ _surfaces = [{
 height = 3.0
 
 [node name="Raqueta" type="CharacterBody3D" unique_id=230542499]
+collision_mask = 4
 
 [node name="CSGBakedMeshInstance3D" type="MeshInstance3D" parent="." unique_id=571501942]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
