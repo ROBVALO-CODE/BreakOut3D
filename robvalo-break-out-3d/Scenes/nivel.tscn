@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://yovcawgey3m" path="res://Scripts/raqueta.gd" id="4_bj26p"]
 [ext_resource type="PackedScene" uid="uid://cen1earticvhe" path="res://Scenes/pelota.tscn" id="4_dgjcf"]
 [ext_resource type="Script" uid="uid://10ijnogeoio0" path="res://Scripts/pelota.gd" id="6_ly74u"]
+[ext_resource type="PackedScene" uid="uid://gft3k7plcg38" path="res://Scenes/Hud.tscn" id="7_dgjcf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13qdw"]
 albedo_color = Color(0, 0.5005968, 0.46669424, 1)
@@ -129,6 +130,8 @@ shadow_enabled = true
 omni_range = 36.0
 omni_attenuation = 0.4
 omni_shadow_mode = 0
+
+[node name="Hud" parent="." unique_id=1790039073 instance=ExtResource("7_dgjcf")]
 
 [connection signal="body_entered" from="Pelota" to="Pelota" method="_on_body_entered"]
 [connection signal="screen_exited" from="Pelota/VisibleOnScreenNotifier3D" to="Pelota" method="_on_visible_on_screen_notifier_3d_screen_exited"]
