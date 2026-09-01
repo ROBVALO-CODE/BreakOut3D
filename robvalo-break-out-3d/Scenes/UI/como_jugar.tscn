@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://4jnjhm77rqqo"]
+
+[ext_resource type="Script" uid="uid://c6hjmss1xlhde" path="res://Scripts/como_jugar.gd" id="1_8g4o0"]
+[ext_resource type="Texture2D" uid="uid://dtkd31mdt1s3f" path="res://Images/mouse.png" id="1_rtlr7"]
+[ext_resource type="Texture2D" uid="uid://bs5e6lwb0c7vj" path="res://Images/left_arrow.png" id="2_uh65a"]
+[ext_resource type="Texture2D" uid="uid://drahaodn7d7pr" path="res://Images/right_arrow.png" id="3_8g4o0"]
+[ext_resource type="Texture2D" uid="uid://dwqxpcnjg6qu2" path="res://Images/space.png" id="4_uh65a"]
+
+[node name="como_jugar" type="Control" unique_id=1773477121]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8g4o0")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=158246106]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.29803923, 0.29803923, 0.29803923, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=970626505]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 56.0
+offset_top = 28.0
+offset_right = -55.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ColorRect2" unique_id=1988604100]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -293.25
+offset_top = 33.0
+offset_right = 293.25
+offset_bottom = 136.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "BASIC CONTROLS"
+
+[node name="Label2" type="Label" parent="ColorRect2" unique_id=354988417]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -623.5
+offset_top = 446.0
+offset_right = -37.0
+offset_bottom = 578.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Use the arrows for moving
+the paddle on left or right
+direction"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="ColorRect2" unique_id=1153768675]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 265.5
+offset_top = 738.0
+offset_right = 852.0
+offset_bottom = 841.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Use the left click
+for interact with
+the buttons"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="ColorRect2" unique_id=1278430060]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -621.5
+offset_top = 777.0
+offset_right = -35.0
+offset_bottom = 878.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Use Space for shoot the ball
+from the paddle"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="ColorRect2" unique_id=2027721524]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -135.0
+offset_bottom = 131.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 70
+text = "X"
+
+[node name="Mouse" type="Sprite2D" parent="." unique_id=607366530]
+position = Vector2(1516, 539)
+scale = Vector2(1.6257862, 1.5700389)
+texture = ExtResource("1_rtlr7")
+
+[node name="LeftArrow" type="Sprite2D" parent="." unique_id=90147409]
+position = Vector2(472, 400)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_uh65a")
+
+[node name="RightArrow" type="Sprite2D" parent="." unique_id=1832357094]
+position = Vector2(785, 400)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_8g4o0")
+
+[node name="Space" type="Sprite2D" parent="." unique_id=217833660]
+position = Vector2(634, 727)
+texture = ExtResource("4_uh65a")
+
+[connection signal="pressed" from="ColorRect2/Button" to="." method="_on_button_pressed"]
