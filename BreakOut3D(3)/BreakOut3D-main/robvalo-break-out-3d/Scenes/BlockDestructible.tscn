@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dsjkxwbwgxmhm" path="res://Scripts/block_destructible.gd" id="1_3uu5t"]
 [ext_resource type="ArrayMesh" uid="uid://dabq0q52t2uon" path="res://Meshes/LegoMeshDestructible.tres" id="2_x55lh"]
+[ext_resource type="AudioStream" uid="uid://byxjwc1edrmya" path="res://audiobloquedestructible.mp3" id="3_pbiui"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ykc8j"]
 friction = 0.0
@@ -49,3 +50,10 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ovrride")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=410362961]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4601059, 0.006551385, 0.50079346)
 shape = SubResource("BoxShape3D_72mty")
+
+[node name="SonidoRotura" type="AudioStreamPlayer3D" parent="." unique_id=1946105943]
+stream = ExtResource("3_pbiui")
+volume_db = 10.0
+unit_size = 50.0
+max_db = 1.0
+max_distance = 60.0

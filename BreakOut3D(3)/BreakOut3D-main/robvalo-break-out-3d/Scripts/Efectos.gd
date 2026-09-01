@@ -29,3 +29,13 @@ static func flash(objetivo: Object, propiedad: String, color: Color,
 	tween.tween_property(objetivo, propiedad, color, duracion)
 	tween.tween_property(objetivo, propiedad, color_original, duracion)
 	return true
+
+## Reproduce un sonido puntual en 3D. sonido: el AudioStreamPlayer3D ya
+## configurado en la escena (con su AudioStream asignado). Se puede llamar
+## varias veces seguidas sin que un sonido corte al anterior, porque no
+## reusa el nodo si ya está sonando: usa una copia temporal.
+static func sonido(reproductor: AudioStreamPlayer3D) -> bool:
+	if reproductor == null or reproductor.stream == null:
+		return false
+	reproductor.play()
+	return true
