@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://c0038ld1osjsm"]
 
+[ext_resource type="Script" uid="uid://e3782jglsqrx" path="res://Scripts/menu_principal.gd" id="1_8wq1t"]
+[ext_resource type="Texture2D" uid="uid://b7hok66ddn13x" path="res://Images/ROBVALO app icom.png" id="2_jy170"]
+
 [node name="menu_principal" type="Control" unique_id=1620347581]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_8wq1t")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1915750177]
 layout_mode = 1
@@ -15,6 +19,38 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=1220061545]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -376.5
+offset_top = 86.0
+offset_right = 376.5
+offset_bottom = 293.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 120
+text = "BreakOut 3D"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="ColorRect" unique_id=695040954]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -376.5
+offset_top = -103.0
+offset_right = 376.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "ROBVALO CODE"
+horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1894697211]
 layout_mode = 1
@@ -55,3 +91,14 @@ text = "SETTINGS"
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "EXIT"
+
+[node name="RobvaloAppIcom" type="Sprite2D" parent="VBoxContainer" unique_id=496836090]
+position = Vector2(730.875, -209.5)
+scale = Vector2(0.16427436, 0.15789475)
+texture = ExtResource("2_jy170")
+
+[connection signal="pressed" from="VBoxContainer/play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/how_to_play_button" to="." method="_on_how_to_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/power_ups_button" to="." method="_on_power_ups_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/settings_button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/exit_button" to="." method="_on_exit_button_pressed"]

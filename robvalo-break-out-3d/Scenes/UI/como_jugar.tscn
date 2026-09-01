@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://4jnjhm77rqqo"]
 
+[ext_resource type="Script" uid="uid://c6hjmss1xlhde" path="res://Scripts/como_jugar.gd" id="1_8g4o0"]
 [ext_resource type="Texture2D" uid="uid://dtkd31mdt1s3f" path="res://Images/mouse.png" id="1_rtlr7"]
 [ext_resource type="Texture2D" uid="uid://bs5e6lwb0c7vj" path="res://Images/left_arrow.png" id="2_uh65a"]
 [ext_resource type="Texture2D" uid="uid://drahaodn7d7pr" path="res://Images/right_arrow.png" id="3_8g4o0"]
@@ -12,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_8g4o0")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=158246106]
 layout_mode = 1
@@ -131,3 +133,5 @@ texture = ExtResource("3_8g4o0")
 [node name="Space" type="Sprite2D" parent="." unique_id=217833660]
 position = Vector2(634, 727)
 texture = ExtResource("4_uh65a")
+
+[connection signal="pressed" from="ColorRect2/Button" to="." method="_on_button_pressed"]
