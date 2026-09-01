@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://cblk5et4m6uho"]
+
+[ext_resource type="Script" uid="uid://dsjkxwbwgxmhm" path="res://Scripts/block_destructible.gd" id="1_3uu5t"]
+[ext_resource type="ArrayMesh" uid="uid://dabq0q52t2uon" path="res://Meshes/LegoMeshDestructible.tres" id="2_x55lh"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ykc8j"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_impacto"]
+direction = Vector3(0, 1, 0)
+spread = 60.0
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+scale_min = 0.15
+scale_max = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3uu5t"]
+albedo_color = Color(0, 0.7647059, 0.88235295, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3uu5t"]
+material = SubResource("StandardMaterial3D_3uu5t")
+size = Vector3(1, 1, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ovrride"]
+albedo_color = Color(0, 0.7647059, 0.88235295, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_72mty"]
+size = Vector3(3.9271698, 1, 1.9986572)
+
+[node name="BlockDestructible" type="StaticBody3D" unique_id=1066243555]
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_ykc8j")
+script = ExtResource("1_3uu5t")
+
+[node name="ParticulasImpacto" type="GPUParticles3D" parent="." unique_id=980204214]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4601059, 0.5, 0.50079346)
+emitting = false
+amount = 12
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_impacto")
+draw_pass_1 = SubResource("BoxMesh_3uu5t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1007785183]
+mesh = ExtResource("2_x55lh")
+surface_material_override/0 = SubResource("StandardMaterial3D_ovrride")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=410362961]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4601059, 0.006551385, 0.50079346)
+shape = SubResource("BoxShape3D_72mty")
