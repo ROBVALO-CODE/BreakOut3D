@@ -11,6 +11,12 @@ var initvelocity:Vector3 = ballSpeed * Vector3.FORWARD
 @onready var raqueta: Raqueta = $"../Raqueta"
 @onready var bloques: Node3D = $"../Bloques"
 @onready var nivel: Node3D = $".."
+@onready var mesh = $CSGBakedMeshInstance3D
+@onready var colision = $CollisionShape3D
+@onready var particulas = $GPUParticles3D
+
+
+func _ready() -> void: particulas.finished.connect(queue_free)
 
 func _physics_process(delta: float) -> void:
 	match state:
@@ -32,14 +38,18 @@ func _integrate_forces(_state: PhysicsDirectBodyState3D) -> void:
 		position.x =raqueta.position.x
 		
 
-
 func _on_body_entered(body: Node) -> void:
+	print("La pelota chocó con: ", body.name, " | Tipo: ", body.get_class())
+	
 	if body is Block:
 		body.queue_free()
-		if bloques.get_child_count()== 1:
+		if bloques.get_child_count() == 1:
 			state = GameState.GameOver
-	
 
+	if body.is_in_group("suelo"):
+		mesh.visible = false
+		colision.set_deferred("disabled", true)
+		particulas.emitting = true
 
 func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
 	state =GameState.Idle
