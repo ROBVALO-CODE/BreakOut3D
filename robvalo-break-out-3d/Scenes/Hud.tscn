@@ -20,6 +20,15 @@ offset_bottom = 79.0
 theme_override_font_sizes/font_size = 60
 text = "x3"
 
+[node name="Label2" type="Label" parent="." unique_id=867268132]
+texture_filter = 1
+layout_mode = 0
+offset_left = 871.0
+offset_right = 1231.0
+offset_bottom = 83.0
+theme_override_font_sizes/font_size = 45
+text = "SCORE: 0000"
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1032332441]
 position = Vector2(62.18, 48)
 scale = Vector2(0.12, 0.128)

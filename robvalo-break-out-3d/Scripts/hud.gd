@@ -1,13 +1,13 @@
 extends Control
 
 @export var lives: int = 3
-#Importar una variable vidas con la cantidad de vidas
-#con las que interactuara en el juego y la misma que 
-#se encuentra en el label
+#Define las vidas iniciales y las expone en el Inspector.
 @onready var label: Label = $Label
 # Crea una referencia al nodo label en el HUD y 
 #una al nodo Pelota dentro de la jerarquía del juego
 @onready var ball: Pelota = get_node("/root/Nivel/Pelota")
+@onready var label2: Label = $Label2
+@export var points: int = 0
 #
 
 func _ready() -> void:
@@ -24,6 +24,10 @@ func _ready() -> void:
 		var notifier = ball.get_node("VisibleOnScreenNotifier3D")
 		if notifier and not notifier.is_connected("screen_exited", Callable(self, "_on_ball_exited")):
 			notifier.connect("screen_exited", Callable(self, "_on_ball_exited"))
+		
+		#Verifica si la señal ya está conectada para evitar conectarla dos veces por error.
+		if not ball.is_connected("block_destroyed", Callable(self, "_on_block_destroyed")):
+			ball.connect("block_destroyed", Callable(self, "_on_block_destroyed"))
 
 func _on_ball_exited() -> void:
 	#Cuando la pelota salga de la vista restar una vida a lives
@@ -40,6 +44,14 @@ func _on_ball_exited() -> void:
 		if ball:
 			ball.state = Pelota.GameState.GameOver
 			
+func _on_block_destroyed()-> void:
+	points += 100
+	update_hud()
+			
 func update_hud() -> void:
 	if label:
 		label.text = "x " + str(lives)
+	if label2:
+		#Actualiza el marcador con el puntaje en formato de cuatro dígitos
+		label2.text = "SCORE: " + "%04d" % points
+		
