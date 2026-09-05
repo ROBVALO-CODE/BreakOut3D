@@ -10,7 +10,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_8vcfy")
 
-[node name="Label" type="Label" parent="." unique_id=85771674]
+[node name="LivesLabel" type="Label" parent="." unique_id=85771674]
 texture_filter = 1
 layout_mode = 0
 offset_left = 109.0
@@ -20,16 +20,27 @@ offset_bottom = 79.0
 theme_override_font_sizes/font_size = 60
 text = "x3"
 
-[node name="Label2" type="Label" parent="." unique_id=867268132]
-texture_filter = 1
-layout_mode = 0
-offset_left = 871.0
-offset_right = 1231.0
-offset_bottom = 83.0
-theme_override_font_sizes/font_size = 45
-text = "SCORE: 0000"
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1032332441]
 position = Vector2(62.18, 48)
 scale = Vector2(0.12, 0.128)
 texture = ExtResource("1_chfh5")
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=867268132]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1608.0
+offset_top = 11.0
+offset_right = 1968.0
+offset_bottom = 94.0
+theme_override_font_sizes/font_size = 45
+text = "SCORE: 0000"
+
+[node name="FloatingText" type="Label" parent="ScoreLabel" unique_id=163359842]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 70.0
+offset_right = 266.0
+offset_bottom = 125.0
+theme_override_colors/font_color = Color(0.69803923, 1, 0.83137256, 1)
+theme_override_font_sizes/font_size = 40
+text = "+100"
