@@ -1,17 +1,20 @@
 class_name Pelota extends RigidBody3D
 
+
 enum GameState {Idle, Playing, GameOver}
+
 var state: GameState = GameState.Idle
 
 var moveDirection: Vector3
 var ballSpeed: float = 10.0
 var initvelocity: Vector3 = ballSpeed * Vector3.FORWARD
 
-# Cantidad de oportunidades de la pelota
+# Cantidad de oportunidades
 var oportunidades: int = 3
 
-# Evita detectar varias veces la misma caída
+# Evita que una misma caída se registre varias veces
 var perdiendo_vida: bool = false
+
 
 @onready var initPosition: Vector3 = position
 @onready var raqueta: Raqueta = $"../Raqueta"
@@ -19,11 +22,11 @@ var perdiendo_vida: bool = false
 @onready var nivel: Node3D = $".."
 
 @onready var particulas_impacto: GPUParticles3D = $particulas_impacto
-@onready var mesh: MeshInstance3D = $CSGBakedMeshInstance3D
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	match state:
+
 		GameState.Idle:
 			if Input.is_action_just_pressed("ui_accept"):
 				state = GameState.Playing
@@ -47,15 +50,26 @@ func _integrate_forces(_state: PhysicsDirectBodyState3D) -> void:
 
 func _on_body_entered(body: Node) -> void:
 
-	# Si la pelota toca el suelo
+	# ==========================================
+	# LA PELOTA TOCA EL SUELO
+	# ==========================================
+
 	if body.name == "SueloMapa":
+
 		if not perdiendo_vida:
 			_perder_oportunidad()
+
 		return
 
-	# Si la pelota toca un bloque
+
+	# ==========================================
+	# LA PELOTA TOCA UN BLOQUE
+	# ==========================================
+
 	if body is Block:
+
 		if body.has_method("recibir_dano"):
+
 			var block := body as Block
 			var vida_restante: float = block.recibir_dano(1.0)
 
@@ -64,71 +78,134 @@ func _on_body_entered(body: Node) -> void:
 
 
 func _perder_oportunidad() -> void:
+
 	perdiendo_vida = true
 
-	# Detener la pelota
+	# ==========================================
+	# DETENER LA PELOTA
+	# ==========================================
+
 	linear_velocity = Vector3.ZERO
 	angular_velocity = Vector3.ZERO
 
-	# Guardar la posición donde cayó
-	var posicion_explosion := particulas_impacto.global_transform
 
-	# Sacar las partículas de la pelota
-	remove_child(particulas_impacto)
+	# ==========================================
+	# CREAR UNA COPIA DE LAS PARTÍCULAS
+	# ==========================================
 
-	# Pasar las partículas al nivel
-	get_tree().current_scene.add_child(particulas_impacto)
+	var explosion := particulas_impacto.duplicate() as GPUParticles3D
 
-	# Mantener las partículas donde cayó la pelota
-	particulas_impacto.global_transform = posicion_explosion
+	var posicion_explosion := global_transform
 
-	# Reiniciar y activar las partículas
-	particulas_impacto.restart()
-	particulas_impacto.emitting = true
 
-	# Eliminar las partículas cuando terminen
-	particulas_impacto.finished.connect(particulas_impacto.queue_free)
+	# Agregar las partículas al nivel
+	get_tree().current_scene.add_child(explosion)
 
-	# Restar una oportunidad
+
+	# Colocarlas exactamente donde estaba la pelota
+	explosion.global_transform = posicion_explosion
+
+
+	# ==========================================
+	# ACTIVAR LA EXPLOSIÓN
+	# ==========================================
+
+	explosion.restart()
+	explosion.emitting = true
+
+
+	# Eliminar la copia cuando termine
+	explosion.finished.connect(explosion.queue_free)
+
+
+	# ==========================================
+	# RESTAR UNA OPORTUNIDAD
+	# ==========================================
+
 	oportunidades -= 1
 
+	print("================================")
+	print("PELOTA PERDIDA")
 	print("Oportunidades restantes: ", oportunidades)
+	print("================================")
 
-	# Ocultar la pelota
-	mesh.visible = false
+
+	# ==========================================
+	# OCULTAR LA PELOTA
+	# ==========================================
+
+	visible = false
+
+	# Desactivar temporalmente la colisión
 	$CollisionShape3D.set_deferred("disabled", true)
 
-	# Si todavía quedan oportunidades
+
+	# ==========================================
+	# TODAVÍA QUEDAN OPORTUNIDADES
+	# ==========================================
+
 	if oportunidades > 0:
-		await get_tree().create_timer(0.7).timeout
+
+		await get_tree().create_timer(0.8).timeout
+
 		_reiniciar_pelota()
+
 	else:
-		# Se acabaron las oportunidades
+
+		# ======================================
+		# SE ACABARON LAS OPORTUNIDADES
+		# ======================================
+
+		print("GAME OVER")
+
 		state = GameState.GameOver
 
 
 func _reiniciar_pelota() -> void:
-	# Volver a la posición inicial
+
+	# ==========================================
+	# VOLVER A LA POSICIÓN INICIAL
+	# ==========================================
+
 	global_position = initPosition
 
-	# Mostrar la pelota nuevamente
-	mesh.visible = true
+
+	# ==========================================
+	# DETENER MOVIMIENTO
+	# ==========================================
+
+	linear_velocity = Vector3.ZERO
+	angular_velocity = Vector3.ZERO
+
+
+	# ==========================================
+	# MOSTRAR LA PELOTA
+	# ==========================================
+
+	visible = true
+
 
 	# Reactivar la colisión
 	$CollisionShape3D.set_deferred("disabled", false)
 
-	# Volver al estado inicial
+
+	# Volver al estado de espera
 	state = GameState.Idle
 
-	# Detener movimiento
-	linear_velocity = Vector3.ZERO
-	angular_velocity = Vector3.ZERO
 
-	# Permitir detectar una nueva caída
+	# Permitir detectar otra caída
 	perdiendo_vida = false
 
 
+	print("Pelota reiniciada")
+	print("Oportunidades actuales: ", oportunidades)
+
+
 func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
-	# La pérdida de oportunidades se controla al tocar SueloMapa
+
+	# No utilizamos la salida de pantalla para perder oportunidades.
+	# Las oportunidades se pierden al tocar SueloMapa.
+
 	pass
+	
 	
