@@ -2,6 +2,7 @@
 
 [ext_resource type="Material" uid="uid://c8gi3qb3v31ms" path="res://Materials/pelotaMate.tres" id="1_usuhk"]
 [ext_resource type="Material" uid="uid://bk0jsqtidkcsh" path="res://Materials/emissionMate.tres" id="2_xvw5w"]
+[ext_resource type="Material" uid="uid://pmqlrnkguj6y" path="res://Materials/Blocks/LegoBlueMaterial.tres" id="3_xvw5w"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_13qdw"]
 friction = 0.0
@@ -38,7 +39,17 @@ _surfaces = [{
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_xrivr"]
 
-[node name="Pelota" type="RigidBody3D" unique_id=580420776]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cf2dk"]
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 2.0
+initial_velocity_max = 5.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_usuhk"]
+material = ExtResource("3_xvw5w")
+size = Vector3(1, 1, 1.5)
+
+[node name="Pelota" type="RigidBody3D" unique_id=580420776 groups=["suelo"]]
 collision_layer = 2
 collision_mask = 13
 axis_lock_linear_y = true
@@ -52,3 +63,11 @@ mesh = SubResource("ArrayMesh_rb83p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=111940187]
 shape = SubResource("SphereShape3D_xrivr")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1900118488]
+emitting = false
+amount = 12
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_cf2dk")
+draw_pass_1 = SubResource("BoxMesh_usuhk")

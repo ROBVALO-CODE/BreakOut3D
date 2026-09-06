@@ -15,6 +15,9 @@ albedo_color = Color(0, 0.5005968, 0.46669424, 1)
 material = SubResource("StandardMaterial3D_13qdw")
 size = Vector2(100, 200)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_cf2dk"]
+size = Vector3(30, 0.2, 20)
+
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b1lj4"]
 
 [sub_resource type="Sky" id="Sky_13qdw"]
@@ -32,7 +35,7 @@ glow_bloom = 0.15
 
 [node name="Nivel" type="Node3D" unique_id=1709371479]
 
-[node name="SueloMapa" type="GridMap" parent="." unique_id=2145425342]
+[node name="SueloMapa" type="GridMap" parent="." unique_id=2145425342 groups=["suelo"]]
 mesh_library = ExtResource("1_5xkr0")
 cell_size = Vector3(1, 1, 1)
 data = {
@@ -49,9 +52,15 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
-[node name="PisoVerde" type="MeshInstance3D" parent="." unique_id=1446326350]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -89.7258)
+[node name="PisoVerde" type="MeshInstance3D" parent="." unique_id=1446326350 groups=["suelo"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17585564, -0.67141724, -89.4039)
 mesh = SubResource("PlaneMesh_xrivr")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PisoVerde" unique_id=182744056]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PisoVerde/StaticBody3D" unique_id=1329311309]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_cf2dk")
 
 [node name="Bloques" type="Node3D" parent="." unique_id=1871106135]
 
