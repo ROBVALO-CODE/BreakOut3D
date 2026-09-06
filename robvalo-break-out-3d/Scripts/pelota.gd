@@ -36,7 +36,6 @@ func _integrate_forces(_state: PhysicsDirectBodyState3D) -> void:
 		position = initPosition
 		position.x = raqueta.position.x
 
-
 func _on_body_entered(body: Node) -> void:
 	# Si la pelota toca el suelo, explota
 	if body.name == "SueloMapa":
@@ -44,15 +43,13 @@ func _on_body_entered(body: Node) -> void:
 		return
 
 	# Si la pelota toca un bloque, mantiene el comportamiento actual
+	if body is Block:
+		if body.has_method("recibir_dano"):
+			var block := body as Block
+			var vida_restante: float = block.recibir_dano(1.0)
 
-	if body.has_method("recibir_dano"):
-		var block := body as Block
-		var vida_restante: float = block.recibir_dano(1.0)
-
-		if vida_restante <= 0.0 and bloques.get_child_count() == 1:
-			state = GameState.GameOver
-
-
+			if vida_restante <= 0.0 and bloques.get_child_count() == 1:
+				state = GameState.GameOver
 func _explotar() -> void:
 	# Detener la pelota
 	linear_velocity = Vector3.ZERO
