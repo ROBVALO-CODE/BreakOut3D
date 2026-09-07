@@ -38,9 +38,8 @@ func _on_body_entered(body: Node) -> void:
 		var block := body as Block
 		var vida_restante: float = block.recibir_dano(1.0)
 		
-		# Si el bloque se quedó sin vida, se destruye y se emite la señal
+		# Si la vida llega a 0, el bloque ya se encarga de su propio queue_free()
 		if vida_restante <= 0.0:
-			block.queue_free()
 			block_destroyed.emit()
 			
 			if bloques.get_child_count() == 1:
