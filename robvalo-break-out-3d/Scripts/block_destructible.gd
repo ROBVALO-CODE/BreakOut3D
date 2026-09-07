@@ -7,9 +7,9 @@ class_name Block extends StaticBody3D
 @onready var mesh: MeshInstance3D = $MeshInstance3D
 @onready var particulas_impacto: GPUParticles3D = $ParticulasImpacto
 @onready var sonido_rotura: AudioStreamPlayer3D = $SonidoRotura
-
 ## Le hace daño al bloque. Cualquier cosa del juego puede llamarla sin
 ## saber nada de cómo funciona por dentro. Devuelve la vida restante.
+
 func recibir_dano(cantidad: float) -> float:
 	vida = max(vida - cantidad, 0.0)
 
