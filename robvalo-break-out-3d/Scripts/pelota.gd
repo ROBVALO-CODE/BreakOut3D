@@ -14,6 +14,12 @@ var initvelocity:Vector3 = ballSpeed * Vector3.FORWARD
 @onready var bloques: Node3D = $"../Bloques"
 @onready var nivel: Node3D = $".."
 
+func _ready() -> void:
+	# Aumentar la velocidad automáticamente si el archivo actual es nivel2.tscn
+	if get_tree().current_scene.scene_file_path.ends_with("nivel2.tscn"):
+		ballSpeed = 14.0 # Subimos la velocidad de 10.0 a 14.0 para el Nivel 2
+		initvelocity = ballSpeed * Vector3.FORWARD
+
 func _physics_process(delta: float) -> void:
 	match state:
 		GameState.Idle:
@@ -39,7 +45,12 @@ func _on_body_entered(body: Node) -> void:
 	if body is Block:
 		body.queue_free()
 		block_destroyed.emit() #Emite la señal para avisar que se ha destruido un bloque.
-		if bloques.get_child_count()== 1:
+		if bloques.get_child_count()<= 1:
+			if get_tree().current_scene.scene_file_path.ends_with("nivel2.tscn"):
+				state = GameState.GameOver # Al completar el nivel 2 finaliza el juego # Cuando quede solo 1 bloque (el que se acaba de destruir)
+			else:
+				# Si estamos en el primer nivel, cambia a nivel2.tscn
+				get_tree().change_scene_to_file("res://Scenes/nivel2.tscn")
 			state = GameState.GameOver
 	
 
