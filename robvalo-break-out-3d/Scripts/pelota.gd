@@ -45,6 +45,7 @@ func _on_body_entered(body: Node) -> void:
 
 
 func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
+	nivel.disparar_explosion(global_position)
 	state =GameState.Idle
 	linear_velocity =Vector3.ZERO
 	angular_velocity =Vector3.ZERO
