@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://c6gwqy0id4gja"]
 
-[ext_resource type="Material" uid="uid://c8gi3qb3v31ms" path="res://Materials/pelotaMate.tres" id="1_7w085"]
-[ext_resource type="Material" uid="uid://bk0jsqtidkcsh" path="res://Materials/emissionMate.tres" id="2_g6tv2"]
+[ext_resource type="Material" uid="uid://c8gi3qb3v31ms" path="res://Materials/ball/pelotaMate.tres" id="1_7w085"]
+[ext_resource type="Material" uid="uid://bk0jsqtidkcsh" path="res://Materials/ball/emissionMate.tres" id="2_g6tv2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xrivr"]
 albedo_color = Color(1, 0.51586956, 0.7764076, 1)
