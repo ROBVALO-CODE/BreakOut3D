@@ -1,5 +1,7 @@
 class_name Pelota extends RigidBody3D
 
+signal block_destroyed
+
 enum GameState {Idle, Playing, GameOver}
 var state:GameState = GameState.Idle
 
@@ -36,6 +38,7 @@ func _integrate_forces(_state: PhysicsDirectBodyState3D) -> void:
 func _on_body_entered(body: Node) -> void:
 	if body is Block:
 		body.queue_free()
+		block_destroyed.emit() #Emite la señal para avisar que se ha destruido un bloque.
 		if bloques.get_child_count()== 1:
 			state = GameState.GameOver
 	
