@@ -1,5 +1,6 @@
 class_name Pelota extends RigidBody3D
 
+signal block_destroyed
 
 enum GameState {Idle, Playing, GameOver}
 
