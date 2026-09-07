@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c6hjmss1xlhde" path="res://Scripts/como_jugar.gd" id="1_8g4o0"]
 [ext_resource type="Texture2D" uid="uid://dtkd31mdt1s3f" path="res://Images/mouse.png" id="1_rtlr7"]
+[ext_resource type="Texture2D" uid="uid://bylsibxwyvux1" path="res://Images/BreakOut-Menu Principal.jpg" id="2_84ly7"]
 [ext_resource type="Texture2D" uid="uid://bs5e6lwb0c7vj" path="res://Images/left_arrow.png" id="2_uh65a"]
 [ext_resource type="Texture2D" uid="uid://drahaodn7d7pr" path="res://Images/right_arrow.png" id="3_8g4o0"]
 [ext_resource type="Texture2D" uid="uid://dwqxpcnjg6qu2" path="res://Images/space.png" id="4_uh65a"]
@@ -15,14 +16,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8g4o0")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=158246106]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=856293963]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.29803923, 0.29803923, 0.29803923, 1)
+texture = ExtResource("2_84ly7")
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=970626505]
 layout_mode = 1
@@ -35,6 +36,7 @@ offset_right = -55.0
 offset_bottom = -56.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.16470589, 0.16470589, 0.16470589, 0.7529412)
 
 [node name="Label" type="Label" parent="ColorRect2" unique_id=1988604100]
 layout_mode = 1
@@ -46,7 +48,7 @@ offset_top = 33.0
 offset_right = 293.25
 offset_bottom = 136.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.96474224, 0.96474224, 0.9647421, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 70
 text = "BASIC CONTROLS"
@@ -61,7 +63,7 @@ offset_top = 446.0
 offset_right = -37.0
 offset_bottom = 578.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Use the arrows for moving
@@ -79,7 +81,7 @@ offset_top = 738.0
 offset_right = 852.0
 offset_bottom = 841.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Use the left click
@@ -97,7 +99,7 @@ offset_top = 777.0
 offset_right = -35.0
 offset_bottom = 878.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Use Space for shoot the ball

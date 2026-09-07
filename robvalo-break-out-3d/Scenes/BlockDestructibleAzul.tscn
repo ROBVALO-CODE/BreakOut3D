@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ypuyh2eu6hh1"]
+
+[ext_resource type="Script" uid="uid://dsjkxwbwgxmhm" path="res://Scripts/block_destructible.gd" id="1_anb2f"]
+[ext_resource type="ArrayMesh" uid="uid://ymg8wrinelth" path="res://Meshes/LegoMesh.tres" id="2_anb2f"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ykc8j"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oxqvr"]
+
+[node name="BlockDestructible" type="StaticBody3D" unique_id=1066243555]
+collision_layer = 8
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_ykc8j")
+script = ExtResource("1_anb2f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1007785183]
+mesh = ExtResource("2_anb2f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=410362961]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.006652117, 0.006551385, -0.0029406548)
+shape = SubResource("BoxShape3D_oxqvr")

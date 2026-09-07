@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://e3782jglsqrx" path="res://Scripts/menu_principal.gd" id="1_8wq1t"]
 [ext_resource type="Texture2D" uid="uid://b7hok66ddn13x" path="res://Images/ROBVALO app icom.png" id="2_jy170"]
+[ext_resource type="Texture2D" uid="uid://bylsibxwyvux1" path="res://Images/BreakOut-Menu Principal.jpg" id="2_y661n"]
 
 [node name="menu_principal" type="Control" unique_id=1620347581]
 layout_mode = 3
@@ -12,15 +13,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8wq1t")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1915750177]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1016980233]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_y661n")
 
-[node name="Label" type="Label" parent="ColorRect" unique_id=1220061545]
+[node name="Label" type="Label" parent="TextureRect" unique_id=1220061545]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -30,12 +32,14 @@ offset_top = 86.0
 offset_right = 376.5
 offset_bottom = 293.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.3244853, 0.54954785, 0.63446546, 0)
+theme_override_colors/font_outline_color = Color(0.36186337, 0.6123588, 0.6456691, 1)
 theme_override_font_sizes/font_size = 120
 text = "BreakOut 3D"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="ColorRect" unique_id=695040954]
+[node name="Label2" type="Label" parent="TextureRect" unique_id=695040954]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -47,7 +51,7 @@ offset_top = -103.0
 offset_right = 376.5
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.78775924, 0.78775924, 0.78775924, 1)
 theme_override_font_sizes/font_size = 30
 text = "ROBVALO CODE"
 horizontal_alignment = 1
