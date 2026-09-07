@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://46n052h6cabp"]
 
 [ext_resource type="MeshLibrary" uid="uid://fjuyyubwtjd0" path="res://Meshes/LegoLib.meshlib" id="1_5xkr0"]
+[ext_resource type="Script" uid="uid://pp6qek7gig0a" path="res://Scripts/nivel.gd" id="1_ajbqy"]
 [ext_resource type="PackedScene" uid="uid://cblk5et4m6uho" path="res://Scenes/BlockDestructible.tscn" id="2_bj26p"]
 [ext_resource type="PackedScene" uid="uid://c6gwqy0id4gja" path="res://Scenes/raqueta.tscn" id="3_ly74u"]
 [ext_resource type="Script" uid="uid://yovcawgey3m" path="res://Scripts/raqueta.gd" id="4_bj26p"]
 [ext_resource type="PackedScene" uid="uid://cen1earticvhe" path="res://Scenes/pelota.tscn" id="4_dgjcf"]
 [ext_resource type="Script" uid="uid://10ijnogeoio0" path="res://Scripts/pelota.gd" id="6_ly74u"]
 [ext_resource type="PackedScene" uid="uid://gft3k7plcg38" path="res://Scenes/Hud.tscn" id="7_dgjcf"]
+[ext_resource type="Material" uid="uid://bk0jsqtidkcsh" path="res://Materials/ball/emissionMate.tres" id="9_l6yf2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13qdw"]
 albedo_color = Color(0, 0.5005968, 0.46669424, 1)
@@ -30,7 +32,28 @@ glow_enabled = true
 glow_intensity = 0.8
 glow_bloom = 0.15
 
+[sub_resource type="Curve" id="Curve_l6yf2"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xvw5w"]
+curve = SubResource("Curve_l6yf2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fhcna"]
+inherit_velocity_ratio = 1.0
+spread = 150.0
+initial_velocity_min = 1.0
+initial_velocity_max = 3.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.79999995
+scale_curve = SubResource("CurveTexture_xvw5w")
+
+[sub_resource type="BoxMesh" id="BoxMesh_lmxi0"]
+material = ExtResource("9_l6yf2")
+
 [node name="Nivel" type="Node3D" unique_id=1709371479]
+script = ExtResource("1_ajbqy")
 
 [node name="SueloMapa" type="GridMap" parent="." unique_id=2145425342]
 mesh_library = ExtResource("1_5xkr0")
@@ -132,6 +155,20 @@ omni_attenuation = 0.4
 omni_shadow_mode = 0
 
 [node name="Hud" parent="." unique_id=1790039073 instance=ExtResource("7_dgjcf")]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=814802576]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+emitting = false
+amount = 60
+one_shot = true
+preprocess = 0.5
+speed_scale = 0.5
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_fhcna")
+draw_pass_1 = SubResource("BoxMesh_lmxi0")
+
+[node name="LineaPerdida" type="Marker3D" parent="." unique_id=659031820]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.309902, -0.40547752)
 
 [connection signal="body_entered" from="Pelota" to="Pelota" method="_on_body_entered"]
 [connection signal="screen_exited" from="Pelota/VisibleOnScreenNotifier3D" to="Pelota" method="_on_visible_on_screen_notifier_3d_screen_exited"]
