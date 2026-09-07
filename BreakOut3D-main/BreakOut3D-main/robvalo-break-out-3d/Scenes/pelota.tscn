@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://cen1earticvhe"]
 
-[ext_resource type="Material" uid="uid://c8gi3qb3v31ms" path="res://Materials/ball/pelotaMate.tres" id="1_usuhk"]
-[ext_resource type="Material" uid="uid://bk0jsqtidkcsh" path="res://Materials/ball/emissionMate.tres" id="2_xvw5w"]
+[ext_resource type="Material" uid="uid://c8gi3qb3v31ms" path="res://Materials/pelotaMate.tres" id="1_usuhk"]
+[ext_resource type="Material" uid="uid://bk0jsqtidkcsh" path="res://Materials/emissionMate.tres" id="2_xvw5w"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_13qdw"]
 friction = 0.0
