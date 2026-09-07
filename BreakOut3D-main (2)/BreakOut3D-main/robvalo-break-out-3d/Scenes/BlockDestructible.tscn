@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cblk5et4m6uho"]
+
+[ext_resource type="ArrayMesh" uid="uid://dabq0q52t2uon" path="res://Meshes/LegoMeshDestructible.tres" id="2_x55lh"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ykc8j"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3uu5t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_72mty"]
+size = Vector3(3.9271698, 1, 1.9986572)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3fcsw"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 1, 0)
+spread = 60.0
+initial_velocity_min = 1.5
+initial_velocity_max = 3.0
+gravity = Vector3(0, -6, 0)
+
+[sub_resource type="PrismMesh" id="PrismMesh_3uu5t"]
+left_to_right = 0.2
+
+[node name="BlockDestructible" type="StaticBody3D" unique_id=1066243555]
+collision_layer = 8
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_ykc8j")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1007785183]
+material_override = SubResource("StandardMaterial3D_3uu5t")
+mesh = ExtResource("2_x55lh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=410362961]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4601059, 0.006551385, 0.50079346)
+shape = SubResource("BoxShape3D_72mty")
+
+[node name="ParticulasImpacto" type="GPUParticles3D" parent="." unique_id=446151337]
+emitting = false
+amount = 16
+lifetime = 0.4
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_3fcsw")
+draw_pass_1 = SubResource("PrismMesh_3uu5t")

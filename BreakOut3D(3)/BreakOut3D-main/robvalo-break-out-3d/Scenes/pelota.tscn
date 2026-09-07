@@ -1,7 +1,8 @@
 [gd_scene format=4 uid="uid://cen1earticvhe"]
 
-[ext_resource type="Material" uid="uid://c8gi3qb3v31ms" path="res://Materials/ball/pelotaMate.tres" id="1_usuhk"]
-[ext_resource type="Material" uid="uid://bk0jsqtidkcsh" path="res://Materials/ball/emissionMate.tres" id="2_xvw5w"]
+[ext_resource type="Material" uid="uid://c8gi3qb3v31ms" path="res://Materials/pelotaMate.tres" id="1_usuhk"]
+[ext_resource type="Material" uid="uid://bk0jsqtidkcsh" path="res://Materials/emissionMate.tres" id="2_xvw5w"]
+[ext_resource type="Script" uid="uid://10ijnogeoio0" path="res://Scripts/pelota.gd" id="3_scrpt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_13qdw"]
 friction = 0.0
@@ -46,9 +47,12 @@ physics_material_override = SubResource("PhysicsMaterial_13qdw")
 gravity_scale = 0.0
 contact_monitor = true
 max_contacts_reported = 1
+script = ExtResource("3_scrpt")
 
 [node name="CSGBakedMeshInstance3D" type="MeshInstance3D" parent="." unique_id=1921102646]
 mesh = SubResource("ArrayMesh_rb83p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=111940187]
 shape = SubResource("SphereShape3D_xrivr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
