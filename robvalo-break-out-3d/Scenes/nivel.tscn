@@ -170,7 +170,7 @@ draw_pass_1 = SubResource("BoxMesh_lmxi0")
 [node name="LineaPerdida" type="Marker3D" parent="." unique_id=659031820]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.309902, -0.40547752)
 
-[node name="pause_menu" type="CanvasLayer" parent="." unique_id=879561248]
+[node name="Canvas_Layer" type="CanvasLayer" parent="." unique_id=879561248]
 
 [connection signal="body_entered" from="Pelota" to="Pelota" method="_on_body_entered"]
 [connection signal="screen_exited" from="Pelota/VisibleOnScreenNotifier3D" to="Pelota" method="_on_visible_on_screen_notifier_3d_screen_exited"]
