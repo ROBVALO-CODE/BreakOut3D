@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwj4okmbb1vbp"
-path="res://.godot/imported/BreakOut-PowerUps.jpg-b3b2b4ed641ef8d63702eb9f30180029.ctex"
+uid="uid://cfrgsqukshmqx"
+path="res://.godot/imported/play icono.png-934438353f4c65921a9cb3ad4d9c802f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/BreakOut-PowerUps.jpg"
-dest_files=["res://.godot/imported/BreakOut-PowerUps.jpg-b3b2b4ed641ef8d63702eb9f30180029.ctex"]
+source_file="res://Images/Iconos/play icono.png"
+dest_files=["res://.godot/imported/play icono.png-934438353f4c65921a9cb3ad4d9c802f.ctex"]
 
 [params]
 

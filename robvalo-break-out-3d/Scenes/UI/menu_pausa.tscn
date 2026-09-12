@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://ux37ij413d7"]
 
+[ext_resource type="Texture2D" uid="uid://deuo4eeu2t7bu" path="res://Images/Decoración/bola decoración.png" id="1_d2gud"]
+[ext_resource type="Texture2D" uid="uid://cflfsdie0oijj" path="res://Images/Decoración/bloques decoración 2.png" id="2_vdjc5"]
+[ext_resource type="Texture2D" uid="uid://ey1s885jv2im" path="res://Images/Decoración/bloques decoración 1.png" id="3_w1vkx"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xr03p"]
 bg_color = Color(1, 1, 1, 1)
 border_width_left = 5
@@ -123,3 +127,23 @@ offset_right = -693.0
 offset_bottom = -180.0
 grow_horizontal = 0
 grow_vertical = 0
+
+[node name="BolaDecoración" type="Sprite2D" parent="." unique_id=1200945417]
+texture_filter = 1
+position = Vector2(251.00003, 681.99994)
+rotation = 0.35430184
+scale = Vector2(3.0306122, 3.3214285)
+texture = ExtResource("1_d2gud")
+
+[node name="BloquesDecoración2" type="Sprite2D" parent="." unique_id=354814388]
+texture_filter = 1
+position = Vector2(1658, 281.00006)
+scale = Vector2(2.7291665, 3.2066667)
+texture = ExtResource("2_vdjc5")
+
+[node name="BloquesDecoración1" type="Sprite2D" parent="." unique_id=1257363575]
+texture_filter = 1
+position = Vector2(1662.9999, 742.99994)
+rotation = -3.2218778
+scale = Vector2(2.703125, 2.9733334)
+texture = ExtResource("3_w1vkx")

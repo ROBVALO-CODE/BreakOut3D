@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bylsibxwyvux1"
-path="res://.godot/imported/BreakOut-Menu Principal.jpg-7eef8d33ddd4142fc2e3ef7bc6f6c7c9.ctex"
+uid="uid://deuo4eeu2t7bu"
+path="res://.godot/imported/bola decoración.png-565dfc917768a539a2ab51ddad522bd1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/BreakOut-Menu Principal.jpg"
-dest_files=["res://.godot/imported/BreakOut-Menu Principal.jpg-7eef8d33ddd4142fc2e3ef7bc6f6c7c9.ctex"]
+source_file="res://Images/Decoración/bola decoración.png"
+dest_files=["res://.godot/imported/bola decoración.png-565dfc917768a539a2ab51ddad522bd1.ctex"]
 
 [params]
 
