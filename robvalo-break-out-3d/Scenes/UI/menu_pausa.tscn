@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://ux37ij413d7"]
 
 [ext_resource type="Texture2D" uid="uid://deuo4eeu2t7bu" path="res://Images/Decoración/bola decoración.png" id="1_d2gud"]
+[ext_resource type="Texture2D" uid="uid://byrc6twvkme5v" path="res://Images/Iconos/play icono.png" id="1_vdjc5"]
+[ext_resource type="Texture2D" uid="uid://cqt8kujp0lijp" path="res://Images/Iconos/casa icono.png" id="1_w1vkx"]
 [ext_resource type="Texture2D" uid="uid://cflfsdie0oijj" path="res://Images/Decoración/bloques decoración 2.png" id="2_vdjc5"]
 [ext_resource type="Texture2D" uid="uid://ey1s885jv2im" path="res://Images/Decoración/bloques decoración 1.png" id="3_w1vkx"]
 
@@ -113,6 +115,12 @@ offset_top = -330.0
 offset_right = 860.0
 offset_bottom = -180.0
 grow_vertical = 0
+flat = true
+
+[node name="CasaIcono" type="Sprite2D" parent="home_button" unique_id=2142277196]
+position = Vector2(86, 75)
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("1_w1vkx")
 
 [node name="resume_button" type="Button" parent="." unique_id=459982554]
 layout_mode = 1
@@ -127,6 +135,12 @@ offset_right = -693.0
 offset_bottom = -180.0
 grow_horizontal = 0
 grow_vertical = 0
+flat = true
+
+[node name="PlayIcono" type="Sprite2D" parent="resume_button" unique_id=1043720862]
+position = Vector2(87.00012, 75.00006)
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("1_vdjc5")
 
 [node name="BolaDecoración" type="Sprite2D" parent="." unique_id=1200945417]
 texture_filter = 1
