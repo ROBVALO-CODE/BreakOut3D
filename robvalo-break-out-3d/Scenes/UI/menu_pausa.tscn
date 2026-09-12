@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://deuo4eeu2t7bu" path="res://Images/Decoración/bola decoración.png" id="1_d2gud"]
 [ext_resource type="Texture2D" uid="uid://byrc6twvkme5v" path="res://Images/Iconos/play icono.png" id="1_vdjc5"]
 [ext_resource type="Texture2D" uid="uid://cqt8kujp0lijp" path="res://Images/Iconos/casa icono.png" id="1_w1vkx"]
+[ext_resource type="Script" uid="uid://derrh06jh0wpr" path="res://Scripts/menu_pausa.gd" id="1_xr03p"]
 [ext_resource type="Texture2D" uid="uid://cflfsdie0oijj" path="res://Images/Decoración/bloques decoración 2.png" id="2_vdjc5"]
 [ext_resource type="Texture2D" uid="uid://ey1s885jv2im" path="res://Images/Decoración/bloques decoración 1.png" id="3_w1vkx"]
 
@@ -25,6 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_xr03p")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=417158546]
 layout_mode = 1
@@ -161,3 +163,9 @@ position = Vector2(1662.9999, 742.99994)
 rotation = -3.2218778
 scale = Vector2(2.703125, 2.9733334)
 texture = ExtResource("3_w1vkx")
+
+[connection signal="pressed" from="VBoxContainer/settings_pause_menu_button" to="." method="_on_settings_pause_menu_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/howtoplay_pause_menu_button" to="." method="_on_howtoplay_pause_menu_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/power_ups_pause_menu_button" to="." method="_on_power_ups_pause_menu_button_pressed"]
+[connection signal="pressed" from="home_button" to="." method="_on_home_button_pressed"]
+[connection signal="pressed" from="resume_button" to="." method="_on_resume_button_pressed"]
