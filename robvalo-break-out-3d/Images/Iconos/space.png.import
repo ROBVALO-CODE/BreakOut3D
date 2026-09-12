@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlsikyew07hda"
-path="res://.godot/imported/BreakOut-Opciones.jpg-fb22d92a710fcbe49adb228355e27f38.ctex"
+uid="uid://dwqxpcnjg6qu2"
+path="res://.godot/imported/space.png-e313201a1b473e210970c2c69e227660.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/BreakOut-Opciones.jpg"
-dest_files=["res://.godot/imported/BreakOut-Opciones.jpg-fb22d92a710fcbe49adb228355e27f38.ctex"]
+source_file="res://Images/Iconos/space.png"
+dest_files=["res://.godot/imported/space.png-e313201a1b473e210970c2c69e227660.ctex"]
 
 [params]
 

@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://e3782jglsqrx" path="res://Scripts/menu_principal.gd" id="1_8wq1t"]
 [ext_resource type="Texture2D" uid="uid://b7hok66ddn13x" path="res://Images/ROBVALO app icom.png" id="2_jy170"]
-[ext_resource type="Texture2D" uid="uid://bylsibxwyvux1" path="res://Images/BreakOut-Menu Principal.jpg" id="2_y661n"]
+[ext_resource type="Texture2D" uid="uid://bylsibxwyvux1" path="res://Images/Fondos/BreakOut-Menu Principal.jpg" id="2_y661n"]
 
 [node name="menu_principal" type="Control" unique_id=1620347581]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drahaodn7d7pr"
-path="res://.godot/imported/right_arrow.png-000b807a0db3fd4c1ec0c294bc819d0c.ctex"
+uid="uid://deuo4eeu2t7bu"
+path="res://.godot/imported/bola decoración.png-565dfc917768a539a2ab51ddad522bd1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/right_arrow.png"
-dest_files=["res://.godot/imported/right_arrow.png-000b807a0db3fd4c1ec0c294bc819d0c.ctex"]
+source_file="res://Images/Decoración/bola decoración.png"
+dest_files=["res://.godot/imported/bola decoración.png-565dfc917768a539a2ab51ddad522bd1.ctex"]
 
 [params]
 

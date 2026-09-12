@@ -1,0 +1,173 @@
+[gd_scene format=3 uid="uid://ux37ij413d7"]
+
+[ext_resource type="Texture2D" uid="uid://deuo4eeu2t7bu" path="res://Images/Decoración/bola decoración.png" id="1_d2gud"]
+[ext_resource type="Texture2D" uid="uid://byrc6twvkme5v" path="res://Images/Iconos/play icono.png" id="1_vdjc5"]
+[ext_resource type="Texture2D" uid="uid://cqt8kujp0lijp" path="res://Images/Iconos/casa icono.png" id="1_w1vkx"]
+[ext_resource type="Script" uid="uid://derrh06jh0wpr" path="res://Scripts/menu_pausa.gd" id="1_xr03p"]
+[ext_resource type="Texture2D" uid="uid://cflfsdie0oijj" path="res://Images/Decoración/bloques decoración 2.png" id="2_vdjc5"]
+[ext_resource type="Texture2D" uid="uid://ey1s885jv2im" path="res://Images/Decoración/bloques decoración 1.png" id="3_w1vkx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xr03p"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8, 0, 0.7897278, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="menu_pausa" type="Control" unique_id=1008087746]
+process_mode = 2
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xr03p")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=417158546]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1953125, 0.1953125, 0.1953125, 1)
+
+[node name="Panel" type="Panel" parent="." unique_id=1566615695]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -331.0
+offset_top = -464.5
+offset_right = 331.0
+offset_bottom = 464.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xr03p")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1827320745]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -327.5
+offset_top = -281.0
+offset_right = 327.5
+offset_bottom = 147.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 63
+alignment = 1
+
+[node name="settings_pause_menu_button" type="Button" parent="VBoxContainer" unique_id=1353513044]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0.9490196, 0.9424527, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 50
+text = "SETTINGS"
+
+[node name="howtoplay_pause_menu_button" type="Button" parent="VBoxContainer" unique_id=741175478]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0.9490196, 0.9424527, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 50
+text = "HOW TO PLAY"
+
+[node name="power_ups_pause_menu_button" type="Button" parent="VBoxContainer" unique_id=1499126216]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0.9490196, 0.9424527, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 50
+text = "POWER-UPS"
+
+[node name="PAUSE_MENU" type="Label" parent="." unique_id=306647160]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -327.5
+offset_top = 127.0
+offset_right = 327.5
+offset_bottom = 223.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "PAUSE MENU"
+horizontal_alignment = 1
+
+[node name="home_button" type="Button" parent="." unique_id=1324743985]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 690.0
+offset_top = -330.0
+offset_right = 860.0
+offset_bottom = -180.0
+grow_vertical = 0
+flat = true
+
+[node name="CasaIcono" type="Sprite2D" parent="home_button" unique_id=2142277196]
+position = Vector2(86, 75)
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("1_w1vkx")
+
+[node name="resume_button" type="Button" parent="." unique_id=459982554]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -863.0
+offset_top = -330.0
+offset_right = -693.0
+offset_bottom = -180.0
+grow_horizontal = 0
+grow_vertical = 0
+flat = true
+
+[node name="PlayIcono" type="Sprite2D" parent="resume_button" unique_id=1043720862]
+position = Vector2(87.00012, 75.00006)
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("1_vdjc5")
+
+[node name="BolaDecoración" type="Sprite2D" parent="." unique_id=1200945417]
+texture_filter = 1
+position = Vector2(251.00003, 681.99994)
+rotation = 0.35430184
+scale = Vector2(3.0306122, 3.3214285)
+texture = ExtResource("1_d2gud")
+
+[node name="BloquesDecoración2" type="Sprite2D" parent="." unique_id=354814388]
+texture_filter = 1
+position = Vector2(1658, 281.00006)
+scale = Vector2(2.7291665, 3.2066667)
+texture = ExtResource("2_vdjc5")
+
+[node name="BloquesDecoración1" type="Sprite2D" parent="." unique_id=1257363575]
+texture_filter = 1
+position = Vector2(1662.9999, 742.99994)
+rotation = -3.2218778
+scale = Vector2(2.703125, 2.9733334)
+texture = ExtResource("3_w1vkx")
+
+[connection signal="pressed" from="VBoxContainer/settings_pause_menu_button" to="." method="_on_settings_pause_menu_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/howtoplay_pause_menu_button" to="." method="_on_howtoplay_pause_menu_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/power_ups_pause_menu_button" to="." method="_on_power_ups_pause_menu_button_pressed"]
+[connection signal="pressed" from="home_button" to="." method="_on_home_button_pressed"]
+[connection signal="pressed" from="resume_button" to="." method="_on_resume_button_pressed"]

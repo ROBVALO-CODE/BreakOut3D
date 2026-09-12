@@ -7,7 +7,7 @@ func _on_play_button_pressed() -> void:
 
 
 func _on_how_to_play_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/UI/como_jugar.tscn")
+	SceneManager.open_how_to_play("res://Scenes/UI/menu_principal.tscn")
 
 
 func _on_power_ups_button_pressed() -> void:
