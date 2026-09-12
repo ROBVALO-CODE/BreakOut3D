@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dwqxpcnjg6qu2" path="res://Images/Iconos/space.png" id="4_uh65a"]
 
 [node name="como_jugar" type="Control" unique_id=1773477121]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
