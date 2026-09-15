@@ -126,6 +126,15 @@ position = Vector2(86, 75)
 scale = Vector2(0.24, 0.24)
 texture = ExtResource("1_w1vkx")
 
+[node name="Label" type="Label" parent="home_button" unique_id=1709821211]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 140.0
+offset_right = 141.0
+offset_bottom = 163.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "INITIAL MENU"
+
 [node name="resume_button" type="Button" parent="." unique_id=459982554]
 layout_mode = 1
 anchors_preset = 3
@@ -145,6 +154,15 @@ flat = true
 position = Vector2(87.00012, 75.00006)
 scale = Vector2(0.24, 0.24)
 texture = ExtResource("1_vdjc5")
+
+[node name="Label2" type="Label" parent="resume_button" unique_id=2101606114]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 140.0
+offset_right = 140.0
+offset_bottom = 163.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "RESUME GAME"
 
 [node name="BolaDecoración" type="Sprite2D" parent="." unique_id=1200945417]
 texture_filter = 1
