@@ -40,6 +40,10 @@ func _integrate_forces(_state: PhysicsDirectBodyState3D) -> void:
 		position.x = raqueta.position.x
 
 func _on_body_entered(body: Node) -> void:
+	if body is Raqueta:
+		raqueta.rebote.play()
+		return
+	
 	if body is Block:
 		var block := body as Block
 		var vida_restante: float = block.recibir_dano(1.0)
@@ -47,7 +51,6 @@ func _on_body_entered(body: Node) -> void:
 		# Si la vida llega a 0, el bloque destruido emite la señal
 		if vida_restante <= 0.0:
 			block_destroyed.emit()
-			
 				  # Cuando quede solo 1 bloque (el que se acaba de destruir)
 			if bloques.get_child_count() <= 1:
 				if get_tree().current_scene.scene_file_path.ends_with("nivel2.tscn"):
