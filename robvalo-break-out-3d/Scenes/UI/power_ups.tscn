@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b8ng6o28wvpms"]
 
 [ext_resource type="Texture2D" uid="uid://cwj4okmbb1vbp" path="res://Images/Fondos/BreakOut-PowerUps.jpg" id="1_ct4fi"]
+[ext_resource type="Script" uid="uid://dc835w7ght7um" path="res://Scenes/UI/power_ups.gd" id="1_mh4wx"]
 [ext_resource type="Texture2D" uid="uid://dqx1qshdm2hol" path="res://Images/Iconos/bola icono.png" id="2_hemg5"]
 [ext_resource type="Texture2D" uid="uid://cifk44b7o6m8m" path="res://Images/Iconos/corazón icono.png" id="3_mh4wx"]
 [ext_resource type="Texture2D" uid="uid://dnwpndirn2i33" path="res://Images/Iconos/cruz icono.png" id="4_hhwu0"]
@@ -12,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_mh4wx")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=907782526]
 layout_mode = 1
@@ -143,3 +145,5 @@ theme_override_font_sizes/font_size = 40
 text = "When this power up touches the paddle, it extends the width 
 of your paddle temporarily, giving you a wider surface to catch 
 and bounce the ball."
+
+[connection signal="pressed" from="ColorRect2/Button" to="." method="_on_button_pressed"]

@@ -1,7 +1,9 @@
 extends Control
 
 var como_jugar_scene = preload("res://Scenes/UI/como_jugar.tscn")
+var power_ups_scene = preload("res://Scenes/UI/power_ups.tscn")
 var como_jugar_instancia = null
+var power_ups_instancia = null
 
 func _input(event: InputEvent) -> void:
 	#Esto de arriba es necesario porque se va a generar un evento input
@@ -29,8 +31,21 @@ func _on_howtoplay_pause_menu_button_pressed() -> void:
 	else:
 		como_jugar_instancia.visible = true
 
+# Función conectada a la señal pressed del botón POWER-UPS en pausa
 func _on_power_ups_pause_menu_button_pressed() -> void:
-	pass # Replace with function body.
+	if power_ups_instancia == null:
+		power_ups_instancia = power_ups_scene.instantiate()
+		add_child(power_ups_instancia)
+		
+		# Conectamos la señal closed a nuestra función de cierre
+		power_ups_instancia.closed.connect(_cerrar_power_ups)
+	else:
+		power_ups_instancia.visible = true
+
+func _cerrar_power_ups() -> void:
+	if power_ups_instancia:
+		power_ups_instancia.queue_free()
+		power_ups_instancia = null
 
 func _on_home_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/UI/menu_principal.tscn")
