@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://b8ng6o28wvpms"]
+
+[ext_resource type="Texture2D" uid="uid://cwj4okmbb1vbp" path="res://Images/Fondos/BreakOut-PowerUps.jpg" id="1_ct4fi"]
+[ext_resource type="Script" uid="uid://dc835w7ght7um" path="res://Scenes/UI/power_ups.gd" id="1_mh4wx"]
+[ext_resource type="Texture2D" uid="uid://dqx1qshdm2hol" path="res://Images/Iconos/bola icono.png" id="2_hemg5"]
+[ext_resource type="Texture2D" uid="uid://cifk44b7o6m8m" path="res://Images/Iconos/corazón icono.png" id="3_mh4wx"]
+[ext_resource type="Texture2D" uid="uid://dnwpndirn2i33" path="res://Images/Iconos/cruz icono.png" id="4_hhwu0"]
+
+[node name="power-ups" type="Control" unique_id=1795845621]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mh4wx")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=907782526]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ct4fi")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=143516748]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 56.0
+offset_top = 28.0
+offset_right = -55.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.16470589, 0.16470589, 0.16470589, 0.7529412)
+
+[node name="Label" type="Label" parent="ColorRect2" unique_id=1056868224]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -293.25
+offset_top = 33.0
+offset_right = 293.25
+offset_bottom = 136.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.96474224, 0.96474224, 0.9647421, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "POWER-UPS"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="ColorRect2" unique_id=2134055744]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -135.0
+offset_bottom = 131.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 70
+text = "X"
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect2" unique_id=400591875]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 95.0
+offset_top = -298.0
+offset_right = 245.0
+offset_bottom = -148.0
+grow_vertical = 2
+
+[node name="BolaIcono" type="Sprite2D" parent="ColorRect2/ColorRect" unique_id=947782708]
+position = Vector2(74, 74)
+scale = Vector2(0.227, 0.22)
+texture = ExtResource("2_hemg5")
+
+[node name="Label2" type="Label" parent="ColorRect2/ColorRect" unique_id=803163486]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -65.0
+offset_right = 1600.0
+offset_bottom = 65.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 45
+text = "When this power up touches the paddle, another ball get
+shooted from the paddle."
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect2" unique_id=1054158097]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 95.0
+offset_top = -48.0
+offset_right = 245.0
+offset_bottom = 102.0
+grow_vertical = 2
+
+[node name="CorazónIcono" type="Sprite2D" parent="ColorRect2/ColorRect2" unique_id=257694116]
+position = Vector2(74, 74)
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("3_mh4wx")
+
+[node name="Label3" type="Label" parent="ColorRect2/ColorRect2" unique_id=1130816925]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 10.0
+offset_right = 1600.0
+offset_bottom = 140.0
+theme_override_font_sizes/font_size = 45
+text = "When this power up touches the paddle, an extra life is added
+to the game."
+
+[node name="ColorRect3" type="ColorRect" parent="ColorRect2" unique_id=1166044243]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 95.0
+offset_top = 202.0
+offset_right = 245.0
+offset_bottom = 352.0
+grow_vertical = 2
+
+[node name="CruzIcono" type="Sprite2D" parent="ColorRect2/ColorRect3" unique_id=1668528530]
+position = Vector2(74, 74)
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("4_hhwu0")
+
+[node name="Label4" type="Label" parent="ColorRect2/ColorRect3" unique_id=677082072]
+layout_mode = 0
+offset_left = 200.0
+offset_right = 1600.0
+offset_bottom = 171.0
+theme_override_font_sizes/font_size = 40
+text = "When this power up touches the paddle, it extends the width 
+of your paddle temporarily, giving you a wider surface to catch 
+and bounce the ball."
+
+[connection signal="pressed" from="ColorRect2/Button" to="." method="_on_button_pressed"]

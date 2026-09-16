@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwqxpcnjg6qu2"
-path="res://.godot/imported/space.png-bb57ef4354f39666f336b10b894f3289.ctex"
+uid="uid://dqx1qshdm2hol"
+path="res://.godot/imported/bola icono.png-6d0e688554aacc69934e4fb00251c3c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/space.png"
-dest_files=["res://.godot/imported/space.png-bb57ef4354f39666f336b10b894f3289.ctex"]
+source_file="res://Images/Iconos/bola icono.png"
+dest_files=["res://.godot/imported/bola icono.png-6d0e688554aacc69934e4fb00251c3c8.ctex"]
 
 [params]
 

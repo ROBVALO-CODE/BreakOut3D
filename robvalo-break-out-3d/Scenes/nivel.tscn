@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://10ijnogeoio0" path="res://Scripts/pelota.gd" id="6_ly74u"]
 [ext_resource type="PackedScene" uid="uid://gft3k7plcg38" path="res://Scenes/Hud.tscn" id="7_dgjcf"]
 [ext_resource type="Material" uid="uid://bk0jsqtidkcsh" path="res://Materials/ball/emissionMate.tres" id="9_l6yf2"]
+[ext_resource type="PackedScene" uid="uid://ux37ij413d7" path="res://Scenes/UI/menu_pausa.tscn" id="10_fhcna"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13qdw"]
 albedo_color = Color(0, 0.5005968, 0.46669424, 1)
@@ -169,6 +170,11 @@ draw_pass_1 = SubResource("BoxMesh_lmxi0")
 
 [node name="LineaPerdida" type="Marker3D" parent="." unique_id=659031820]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.309902, -0.40547752)
+
+[node name="Canvas_Layer" type="CanvasLayer" parent="." unique_id=879561248]
+
+[node name="menu_pausa" parent="Canvas_Layer" unique_id=1008087746 instance=ExtResource("10_fhcna")]
+process_mode = 3
 
 [connection signal="body_entered" from="Pelota" to="Pelota" method="_on_body_entered"]
 [connection signal="screen_exited" from="Pelota/VisibleOnScreenNotifier3D" to="Pelota" method="_on_visible_on_screen_notifier_3d_screen_exited"]

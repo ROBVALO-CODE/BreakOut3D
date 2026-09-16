@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwj4okmbb1vbp"
-path="res://.godot/imported/BreakOut-PowerUps.jpg-b3b2b4ed641ef8d63702eb9f30180029.ctex"
+uid="uid://bs138144qanud"
+path="res://.godot/imported/esc icon.png-3d8f76e727c5d85045e9e8b5cc8c8bf5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/BreakOut-PowerUps.jpg"
-dest_files=["res://.godot/imported/BreakOut-PowerUps.jpg-b3b2b4ed641ef8d63702eb9f30180029.ctex"]
+source_file="res://Images/Iconos/esc icon.png"
+dest_files=["res://.godot/imported/esc icon.png-3d8f76e727c5d85045e9e8b5cc8c8bf5.ctex"]
 
 [params]
 
