@@ -46,7 +46,7 @@ func _on_ball_exited() -> void:
 		_go_to_game_over()
 	
 func _go_to_game_over() -> void:
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(0.1).timeout
 	SceneManager.change_scene("res://Scenes/UI/Game_over.tscn")	
 	
 func _on_block_destroyed()-> void:
