@@ -7,8 +7,27 @@
 friction = 0.0
 bounce = 1.0
 
+[sub_resource type="Gradient" id="Gradient_bn13o"]
+offsets = PackedFloat32Array(0, 0.6060606)
+colors = PackedColorArray(0.76323575, 0.93114966, 0.99999994, 1, 0.5201827, 0.7517377, 0.7309386, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_r6318"]
+noise_type = 2
+cellular_return_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hchaj"]
+noise = SubResource("FastNoiseLite_r6318")
+color_ramp = SubResource("Gradient_bn13o")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4gxs6"]
+albedo_color = Color(0.62754285, 0.9706418, 0.95603305, 1)
+albedo_texture = SubResource("NoiseTexture2D_hchaj")
+metallic = 1.0
+metallic_specular = 0.21
+roughness = 0.73
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_72mty"]
-size = Vector3(3.9271698, 1, 1.9986572)
+size = Vector3(3.9271698, 2.5981445, 1.9986572)
 
 [node name="BlockDestructible" type="StaticBody3D" unique_id=1066243555]
 collision_layer = 8
@@ -17,8 +36,19 @@ physics_material_override = SubResource("PhysicsMaterial_ykc8j")
 script = ExtResource("1_3uu5t")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1007785183]
+transform = Transform3D(0.99999815, 0.001913496, 0.00010802437, -0.0019165426, 0.99840844, 0.05636408, 0, -0.056364186, 0.9984103, 0.5003438, -0.7575929, 0.19826937)
 mesh = ExtResource("2_x55lh")
+surface_material_override/0 = SubResource("StandardMaterial3D_4gxs6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=410362961]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4601059, 0.006551385, 0.50079346)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4601059, 2.304276, 2.059874)
 shape = SubResource("BoxShape3D_72mty")
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=302863956]
+transform = Transform3D(0.90427846, 0.18073708, -0.3868004, 0.38394874, -0.7404748, 0.55161625, -0.1867184, -0.64732623, -0.73898923, 0.77433896, 3.074086, -1.1985345)
+
+[node name="DirectionalLight3D4" type="DirectionalLight3D" parent="." unique_id=859141270]
+transform = Transform3D(0.9042785, 0.18073711, -0.38680038, 0.38394877, -0.7404748, 0.55161625, -0.18671842, -0.64732623, -0.73898923, 4.117071, 3.074086, -1.1985345)
+
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="." unique_id=727481141]
+transform = Transform3D(0.60938865, 0.26859084, -0.74599236, -0.31557295, 0.9453025, 0.08256521, 0.7273646, 0.18510066, 0.66081655, 2.3050027, 0.31289744, 5.729647)
