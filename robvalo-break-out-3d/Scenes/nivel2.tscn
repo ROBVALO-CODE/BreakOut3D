@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://pp6qek7gig0a" path="res://Scripts/nivel.gd" id="1_ebdl0"]
 [ext_resource type="MeshLibrary" uid="uid://fjuyyubwtjd0" path="res://Meshes/LegoLib.meshlib" id="2_l8p0v"]
-[ext_resource type="PackedScene" uid="uid://bp2kv1aqoyhnj" path="res://Scenes/BlockDestructibleverde.tscn" id="3_l8p0v"]
+[ext_resource type="PackedScene" uid="uid://djk27xdde8h71" path="res://Scenes/BlockDestructibleverde.tscn" id="3_l8p0v"]
 [ext_resource type="PackedScene" uid="uid://c6gwqy0id4gja" path="res://Scenes/raqueta.tscn" id="4_xb0f7"]
-[ext_resource type="PackedScene" uid="uid://ypuyh2eu6hh1" path="res://Scenes/BlockDestructibleAzul.tscn" id="4_yidnl"]
+[ext_resource type="PackedScene" uid="uid://c36xevc2sm64f" path="res://Scenes/BlockDestructibleAzul.tscn" id="4_yidnl"]
 [ext_resource type="Script" uid="uid://yovcawgey3m" path="res://Scripts/raqueta.gd" id="5_nj6vl"]
 [ext_resource type="PackedScene" uid="uid://cen1earticvhe" path="res://Scenes/pelota.tscn" id="6_gho1a"]
 [ext_resource type="Script" uid="uid://10ijnogeoio0" path="res://Scripts/pelota.gd" id="7_wxvsr"]
