@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bjh10ks1h8wh2"]
+
+[ext_resource type="Material" path="res://Materials/ball/nuevoMatBall.tres" id="1_ul7w7"]
+
+[node name="pelotaNuevoMaterial" type="RigidBody3D" unique_id=1749966153]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1459883707]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D" unique_id=336501149]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2089608, 0)
+radial_segments = 24
+rings = 30
+material = ExtResource("1_ul7w7")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D/CSGSphere3D" unique_id=8415186]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+operation = 2
+radius = 0.1
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/CSGSphere3D/CSGCylinder3D" unique_id=1030372099]
+size = Vector3(0.5, 1, 1)
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D/CSGSphere3D" unique_id=367053305]
+operation = 2
+radius = 0.1
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D/CSGSphere3D" unique_id=1820348370]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 0, 0, 0)
+operation = 2
+radius = 0.1
