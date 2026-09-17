@@ -53,3 +53,4 @@ stream = SubResource("AudioStreamMP3_v8s3x")
 volume_db = -10.0
 unit_size = 50.0
 max_distance = 40.0
+bus = &"SFX"
