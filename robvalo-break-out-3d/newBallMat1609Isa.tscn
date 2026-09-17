@@ -3,6 +3,8 @@
 [ext_resource type="Material" uid="uid://nmxjom4i3i4e" path="res://Materials/ball/nuevoMatBall.tres" id="1_c6eeb"]
 [ext_resource type="Material" uid="uid://c7l2blo7nb7l" path="res://Materials/ball/emissionNueva.tres" id="2_tcoyi"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_xrivr"]
+
 [node name="RigidBody3D" type="RigidBody3D" unique_id=1475713127]
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1232362924]
@@ -26,3 +28,6 @@ radius = 0.48
 radial_segments = 24
 rings = 12
 material = ExtResource("2_tcoyi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1479775591]
+shape = SubResource("SphereShape3D_xrivr")
