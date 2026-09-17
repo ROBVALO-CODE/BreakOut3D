@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://b56eibr431r1w"]
+
+[ext_resource type="Script" uid="uid://cth1textttke3" path="res://Scenes/UI/game_over.gd" id="1_688su"]
+[ext_resource type="Texture2D" uid="uid://drwjb7qoi6rg4" path="res://Images/Fondos/BreakOut-Game Over.png" id="2_mtoh6"]
+
+[node name="GameOver" type="Control" unique_id=2083483193]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_688su")
+
+[node name="fondo" type="ColorRect" parent="." unique_id=778360490]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="fondo" unique_id=377233902]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Game over" type="Label" parent="fondo" unique_id=2039122611]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="TextureRect" type="TextureRect" parent="fondo" unique_id=981547744]
+layout_mode = 0
+offset_top = -4.0
+offset_right = 1910.0
+offset_bottom = 1081.0
+texture = ExtResource("2_mtoh6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=356414258]
+layout_mode = 0
+offset_left = 695.0
+offset_top = 565.0
+offset_right = 1255.0
+offset_bottom = 890.0
+
+[node name="RETRY" type="Button" parent="." unique_id=112226396]
+layout_mode = 0
+offset_left = 691.0
+offset_top = 569.0
+offset_right = 1261.0
+offset_bottom = 707.0
+
+[node name="EXIT" type="Button" parent="." unique_id=959878960]
+layout_mode = 0
+offset_left = 686.0
+offset_top = 731.0
+offset_right = 1256.0
+offset_bottom = 869.0
