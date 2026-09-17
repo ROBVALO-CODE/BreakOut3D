@@ -13,6 +13,7 @@ colors = PackedColorArray(0.76323575, 0.93114966, 0.99999994, 1, 0.5201827, 0.75
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_r6318"]
 noise_type = 2
+offset = Vector3(43.48, 739.13, -1000)
 cellular_return_type = 0
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hchaj"]
@@ -50,5 +51,5 @@ transform = Transform3D(0.90427846, 0.18073708, -0.3868004, 0.38394874, -0.74047
 [node name="DirectionalLight3D4" type="DirectionalLight3D" parent="." unique_id=859141270]
 transform = Transform3D(0.9042785, 0.18073711, -0.38680038, 0.38394877, -0.7404748, 0.55161625, -0.18671842, -0.64732623, -0.73898923, 4.117071, 3.074086, -1.1985345)
 
-[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="." unique_id=727481141]
-transform = Transform3D(0.60938865, 0.26859084, -0.74599236, -0.31557295, 0.9453025, 0.08256521, 0.7273646, 0.18510066, 0.66081655, 2.3050027, 0.31289744, 5.729647)
+[node name="DirectionalLight3D5" type="DirectionalLight3D" parent="." unique_id=2005683038]
+transform = Transform3D(-0.6222795, -0.53350204, -0.5728384, 0.58104944, 0.17556354, -0.79470694, 0.5245473, -0.8273773, 0.20074137, 4.117071, 3.074086, -1.1985345)
