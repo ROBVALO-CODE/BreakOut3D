@@ -16,6 +16,15 @@ config/features=PackedStringArray("4.7", "Forward Plus")
 run/max_fps=60
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://bus/default_bus_layout.tres"
+
+[autoload]
+
+SceneManager="*uid://bytb86v48205n"
+MusicPlayer="*uid://cbmdbst8xkiyx"
+
 [display]
 
 window/size/viewport_width=1920

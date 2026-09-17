@@ -35,20 +35,20 @@ func _ready() -> void:
 			ball.connect("block_destroyed", Callable(self, "_on_block_destroyed"))
 
 func _on_ball_exited() -> void:
-	#Cuando la pelota salga de la vista restar una vida a lives
-	#y actualizar el hud
 	lives -= 1
 	update_hud()
 	
 	if lives <= 0:
-		#Si las vidas de la pelota son iguales a 0 o menor cambia
-		#el estado de pelota a GameOver haciendo que de acuerdo a
-		#los parametros de pelota esta no siga su movimientoal salir
-		#de la pantalla, de tal manera que la pelota no vuelve a su
-		#posicion inicial dando a entender el fin de la partida por GameOver
 		if ball:
 			ball.state = Pelota.GameState.GameOver
-			
+		
+		SceneManager.last_level_path = get_tree().current_scene.scene_file_path
+		_go_to_game_over()
+	
+func _go_to_game_over() -> void:
+	await get_tree().create_timer(0.1).timeout
+	SceneManager.change_scene("res://Scenes/UI/Game_over.tscn")	
+	
 func _on_block_destroyed()-> void:
 	points += 100
 	update_hud()
