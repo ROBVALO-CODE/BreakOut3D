@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dwpx8pfpr83vq"]
+
+[ext_resource type="Material" uid="uid://nmxjom4i3i4e" path="res://Materials/ball/nuevoMatBall.tres" id="1_c6eeb"]
+[ext_resource type="Material" uid="uid://c7l2blo7nb7l" path="res://Materials/ball/emissionNueva.tres" id="2_tcoyi"]
+
+[node name="RigidBody3D" type="RigidBody3D" unique_id=1475713127]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1232362924]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D" unique_id=1684588728]
+radial_segments = 24
+rings = 12
+material = ExtResource("1_c6eeb")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/CSGSphere3D" unique_id=375710642]
+operation = 2
+size = Vector3(1, 0.1, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D/CSGSphere3D" unique_id=1970270950]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+operation = 2
+size = Vector3(1, 0.1, 1)
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="CSGCombiner3D/CSGSphere3D" unique_id=1838560735]
+radius = 0.48
+radial_segments = 24
+rings = 12
+material = ExtResource("2_tcoyi")
