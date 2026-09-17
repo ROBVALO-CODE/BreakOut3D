@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b56eibr431r1w"]
 
-[ext_resource type="Script" uid="uid://cth1textttke3" path="res://Scenes/UI/game_over.gd" id="1_688su"]
+[ext_resource type="Script" uid="uid://cth1textttke3" path="res://Scripts/game_over.gd" id="1_688su"]
 [ext_resource type="Texture2D" uid="uid://drwjb7qoi6rg4" path="res://Images/Fondos/BreakOut-Game Over.png" id="2_mtoh6"]
 
 [node name="GameOver" type="Control" unique_id=2083483193]
