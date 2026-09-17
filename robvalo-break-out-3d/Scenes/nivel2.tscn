@@ -2,14 +2,15 @@
 
 [ext_resource type="Script" uid="uid://pp6qek7gig0a" path="res://Scripts/nivel.gd" id="1_ebdl0"]
 [ext_resource type="MeshLibrary" uid="uid://fjuyyubwtjd0" path="res://Meshes/LegoLib.meshlib" id="2_l8p0v"]
-[ext_resource type="PackedScene" uid="uid://bp2kv1aqoyhnj" path="res://Scenes/BlockDestructibleverde.tscn" id="3_l8p0v"]
+[ext_resource type="PackedScene" uid="uid://djk27xdde8h71" path="res://Scenes/BlockDestructibleverde.tscn" id="3_l8p0v"]
 [ext_resource type="PackedScene" uid="uid://c6gwqy0id4gja" path="res://Scenes/raqueta.tscn" id="4_xb0f7"]
-[ext_resource type="PackedScene" uid="uid://ypuyh2eu6hh1" path="res://Scenes/BlockDestructibleAzul.tscn" id="4_yidnl"]
+[ext_resource type="PackedScene" uid="uid://c36xevc2sm64f" path="res://Scenes/BlockDestructibleAzul.tscn" id="4_yidnl"]
 [ext_resource type="Script" uid="uid://yovcawgey3m" path="res://Scripts/raqueta.gd" id="5_nj6vl"]
 [ext_resource type="PackedScene" uid="uid://cen1earticvhe" path="res://Scenes/pelota.tscn" id="6_gho1a"]
 [ext_resource type="Script" uid="uid://10ijnogeoio0" path="res://Scripts/pelota.gd" id="7_wxvsr"]
 [ext_resource type="PackedScene" uid="uid://gft3k7plcg38" path="res://Scenes/Hud.tscn" id="8_bb8u3"]
 [ext_resource type="Material" uid="uid://bk0jsqtidkcsh" path="res://Materials/ball/emissionMate.tres" id="9_mf6ls"]
+[ext_resource type="PackedScene" uid="uid://ux37ij413d7" path="res://Scenes/UI/menu_pausa.tscn" id="11_yidnl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13qdw"]
 albedo_color = Color(0, 0.5005968, 0.46669424, 1)
@@ -305,6 +306,11 @@ draw_pass_1 = SubResource("BoxMesh_lmxi0")
 
 [node name="LineaPerdida" type="Marker3D" parent="." unique_id=659031820]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.309902, -0.40547752)
+
+[node name="Canvas_Layer" type="CanvasLayer" parent="." unique_id=648505960]
+
+[node name="menu_pausa" parent="Canvas_Layer" unique_id=1008087746 instance=ExtResource("11_yidnl")]
+process_mode = 3
 
 [connection signal="body_entered" from="Pelota" to="Pelota" method="_on_body_entered"]
 [connection signal="screen_exited" from="Pelota/VisibleOnScreenNotifier3D" to="Pelota" method="_on_visible_on_screen_notifier_3d_screen_exited"]
