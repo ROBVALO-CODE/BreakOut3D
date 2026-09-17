@@ -12,6 +12,7 @@ func disparar_explosion(pos: Vector3) -> void:
 	print("Explosión en: ", pos_visible)
 	explosion.global_position = pos_visible
 	Efectos.particulas(explosion)
+<<<<<<< Updated upstream
 
 func _ready() -> void:
 	var scene_path := get_tree().current_scene.scene_file_path
@@ -19,3 +20,11 @@ func _ready() -> void:
 		MusicPlayer.play_track(preload("res://Audio/Audio_niveles/aundio_1.mp3"), -8.0)
 	else:
 		MusicPlayer.play_track(preload("res://Audio/Audio_niveles/aundio_1.mp3"), -8.0)
+=======
+<<<<<<< Updated upstream
+=======
+
+func _ready() -> void:
+	MusicPlayer.play_track(preload("res://Audio/Audio_niveles/aundio_1.mp3"), -14.0)
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes

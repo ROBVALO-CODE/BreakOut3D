@@ -3,6 +3,7 @@
 [ext_resource type="Material" uid="uid://c8gi3qb3v31ms" path="res://Materials/ball/pelotaMate.tres" id="1_7w085"]
 [ext_resource type="AudioStream" uid="uid://dgjevl6wjlt26" path="res://Audio/AudioRaquetaRebote/freesound_community-ball-bounce-94853.mp3" id="1_g6tv2"]
 [ext_resource type="Material" uid="uid://bk0jsqtidkcsh" path="res://Materials/ball/emissionMate.tres" id="2_g6tv2"]
+[ext_resource type="AudioStream" uid="uid://bqrwcfd3w37tm" path="res://Audio/AudioRaquetaRebote/freesound_community-ball-bounce-94853 (mp3cut.net).mp3" id="3_g6tv2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xrivr"]
 albedo_color = Color(1, 0.51586956, 0.7764076, 1)
@@ -68,6 +69,18 @@ mesh = SubResource("ArrayMesh_2xsup")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1834860367]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_xrivr")
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+=======
+
+[node name="rebote" type="AudioStreamPlayer3D" parent="." unique_id=870612627]
+stream = ExtResource("3_g6tv2")
+volume_db = 10.0
+max_db = -15.0
+max_distance = 100.0
+bus = &"SFX"
+>>>>>>> Stashed changes
 
 [node name="DetectorGolpe" type="Area3D" parent="." unique_id=1904555741]
 collision_layer = 2
@@ -76,3 +89,7 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectorGolpe" unique_id=1572633645]
 transform = Transform3D(-0.003289022, -0.9999946, 0, 0.9999946, -0.003289022, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_3fcsw")
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
