@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cyfx2m6roxjo0"]
+
+[ext_resource type="Texture2D" uid="uid://burfjqqx0dhqa" path="res://Images/Decoración/basket pelota material.png" id="1_xt4mm"]
+[ext_resource type="Shader" uid="uid://ci614yklprjr5" path="res://Scripts/pelota_2.gdshader" id="2_apy76"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bn13o"]
+render_priority = 0
+shader = ExtResource("2_apy76")
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_width = 0.05
+
+[resource]
+next_pass = SubResource("ShaderMaterial_bn13o")
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_xt4mm")
+metallic = 1.0
