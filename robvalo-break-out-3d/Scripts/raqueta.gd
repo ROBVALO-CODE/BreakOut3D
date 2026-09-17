@@ -18,6 +18,5 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_detector_golpe_body_entered(body: Node) -> void:
-	print("Body entered: ", body.name)
 	if body is Pelota:
 		rebote.play()
