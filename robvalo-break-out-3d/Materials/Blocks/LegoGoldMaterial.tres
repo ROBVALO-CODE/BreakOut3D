@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://hg1oo0285dwo"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_owsu8"]
+
+[resource]
+albedo_color = Color(0.9137255, 0.67058825, 0.46666667, 1)
+metallic = 0.25
+metallic_specular = 0.8
+roughness = 0.8
+roughness_texture = SubResource("NoiseTexture2D_owsu8")
+emission_enabled = true
+emission = Color(0.7231137, 0.4195392, 0.1445513, 1)
+emission_energy_multiplier = 0.6
