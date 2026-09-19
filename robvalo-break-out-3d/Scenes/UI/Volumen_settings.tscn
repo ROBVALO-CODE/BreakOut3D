@@ -26,7 +26,7 @@ texture = ExtResource("1_hhjma")
 
 [node name="BoxContainer" type="BoxContainer" parent="." unique_id=467566514]
 layout_mode = 0
-offset_left = -194.0
+offset_left = -217.0
 offset_top = 378.0
 offset_right = 539.0
 offset_bottom = 435.0
@@ -47,7 +47,7 @@ value = 1.0
 
 [node name="BoxContainer2" type="BoxContainer" parent="." unique_id=2107238624]
 layout_mode = 0
-offset_left = -199.0
+offset_left = -213.0
 offset_top = 537.0
 offset_right = 538.0
 offset_bottom = 603.0
@@ -68,7 +68,7 @@ value = 1.0
 
 [node name="BoxContainer3" type="BoxContainer" parent="." unique_id=691012744]
 layout_mode = 0
-offset_left = -197.0
+offset_left = -211.0
 offset_top = 696.0
 offset_right = 539.0
 offset_bottom = 783.0
