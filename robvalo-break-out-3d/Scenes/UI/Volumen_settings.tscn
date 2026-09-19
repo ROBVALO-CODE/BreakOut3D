@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://bw0nthl7hw44r"]
+
+[ext_resource type="Texture2D" uid="uid://rjfs222ftg0l" path="res://Images/Fondos/BreakOut-Volumen setting.png" id="1_hhjma"]
+[ext_resource type="Script" uid="uid://dt2puquxtmcjn" path="res://Scripts/volumen_settings.gd" id="1_reaot"]
+
+[node name="AjustesVolumen" type="Control" unique_id=1894816567]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 721.0
+offset_top = 121.0
+offset_right = 3.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_reaot")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1409942082]
+layout_mode = 0
+offset_left = -722.0
+offset_top = -112.0
+offset_right = 1101.0
+offset_bottom = 964.0
+texture = ExtResource("1_hhjma")
+
+[node name="BoxContainer" type="BoxContainer" parent="." unique_id=467566514]
+layout_mode = 0
+offset_left = -217.0
+offset_top = 378.0
+offset_right = 539.0
+offset_bottom = 435.0
+vertical = true
+
+[node name="MasterRow" type="HBoxContainer" parent="BoxContainer" unique_id=489236919]
+layout_mode = 2
+
+[node name="MasterLabel" type="Label" parent="BoxContainer/MasterRow" unique_id=1430918782]
+layout_mode = 2
+
+[node name="MasterSlider" type="HSlider" parent="BoxContainer/MasterRow" unique_id=820661836]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="BoxContainer2" type="BoxContainer" parent="." unique_id=2107238624]
+layout_mode = 0
+offset_left = -213.0
+offset_top = 537.0
+offset_right = 538.0
+offset_bottom = 603.0
+vertical = true
+
+[node name="MusicRow" type="HBoxContainer" parent="BoxContainer2" unique_id=1296291894]
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="BoxContainer2/MusicRow" unique_id=1515366319]
+layout_mode = 2
+
+[node name="MusicSlider" type="HSlider" parent="BoxContainer2/MusicRow" unique_id=960341701]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="BoxContainer3" type="BoxContainer" parent="." unique_id=691012744]
+layout_mode = 0
+offset_left = -211.0
+offset_top = 696.0
+offset_right = 539.0
+offset_bottom = 783.0
+vertical = true
+
+[node name="SfxRow" type="HBoxContainer" parent="BoxContainer3" unique_id=1910171140]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SfxLabel" type="Label" parent="BoxContainer3/SfxRow" unique_id=571108192]
+layout_mode = 2
+
+[node name="SfxSlider" type="HSlider" parent="BoxContainer3/SfxRow" unique_id=55422637]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="BackButton" type="Button" parent="." unique_id=1604887126]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 771.0
+offset_right = 326.0
+offset_bottom = 848.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 33
+text = "RETURN"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
