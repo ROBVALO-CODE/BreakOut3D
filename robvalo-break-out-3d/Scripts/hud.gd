@@ -2,14 +2,15 @@ extends Control
 
 @export var lives: int = 3
 #Define las vidas iniciales y las expone en el Inspector.
-@onready var LivesLabel: Label = $LivesLabel
+@onready var LivesLabel: Label = $Contenedor/LivesTextLabel/LivesLabel
 # Crea una referencia al nodo label en el HUD y 
 #una al nodo Pelota dentro de la jerarquía del juego
 @onready var ball: Pelota = get_node("/root/Nivel/Pelota")
-@onready var ScoreLabel : Label = $ScoreLabel
+@onready var ScoreLabel : Label = $Contenedor/ScoreLabel
 @export var points: int = 0
-@onready var FloatingText: Label = $ScoreLabel/FloatingText
+@onready var FloatingText: Label = $Contenedor/ScoreLabel/FloatingText
 var floating_tween: Tween
+@onready var menu_pausa = get_node("/root/Nivel/Canvas_Layer/menu_pausa")
 
 func _ready() -> void:
 	#Si las vidas empiezan en 0 o menos actualiza el
@@ -97,4 +98,7 @@ func update_hud() -> void:
 	if FloatingText:
 		#Actualiza el marcador con el puntaje en formato de cuatro dígitos
 		ScoreLabel.text = "SCORE: " + "%04d" % points
-		
+
+func _on_menu_pause_button_pressed() -> void:
+	if (menu_pausa and menu_pausa.has_method("toggle_pause")):
+		menu_pausa.toggle_pause()
