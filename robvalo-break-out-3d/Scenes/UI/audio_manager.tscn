@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cknviabrvu2y5"]
+
+[ext_resource type="Script" uid="uid://dma8amiw62ea2" path="res://Scripts/AudioManager.gd" id="1_08g05"]
+[ext_resource type="AudioStream" uid="uid://b102x1rxb4lo4" path="res://Audio/SFX/click.wav" id="2_q3gic"]
+[ext_resource type="AudioStream" uid="uid://b4ro2oxtlvrhr" path="res://Audio/SFX/click_back.wav" id="3_yoybt"]
+[ext_resource type="AudioStream" uid="uid://p3uwdw5bfqbu" path="res://Audio/SFX/explosion.wav" id="4_1xomj"]
+[ext_resource type="AudioStream" uid="uid://ce7e6peiv7q1l" path="res://Audio/SFX/paddle_bounce.wav" id="5_b4c8t"]
+
+[node name="AudioManager" type="Node" unique_id=678806235]
+script = ExtResource("1_08g05")
+
+[node name="Click" type="AudioStreamPlayer" parent="." unique_id=2086019909]
+stream = ExtResource("2_q3gic")
+
+[node name="ClickBack" type="AudioStreamPlayer" parent="." unique_id=274464196]
+stream = ExtResource("3_yoybt")
+
+[node name="Explosion" type="AudioStreamPlayer" parent="." unique_id=1794351015]
+stream = ExtResource("4_1xomj")
+
+[node name="PaddleBounce" type="AudioStreamPlayer" parent="." unique_id=180914328]
+stream = ExtResource("5_b4c8t")

@@ -1,6 +1,6 @@
 [gd_resource type="ArrayMesh" format=4 uid="uid://ymg8wrinelth"]
 
-[ext_resource type="Material" uid="uid://oueiieev74nm" path="res://Materials/Blocks/LegoYellowMaterial.tres" id="1_vw41w"]
+[ext_resource type="Material" uid="uid://pmqlrnkguj6y" path="res://Materials/Blocks/LegoBlueMaterial.tres" id="1_vw41w"]
 
 [resource]
 _surfaces = [{
