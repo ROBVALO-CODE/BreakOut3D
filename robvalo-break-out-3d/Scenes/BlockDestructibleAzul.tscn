@@ -34,7 +34,7 @@ physics_material_override = SubResource("PhysicsMaterial_ykc8j")
 script = ExtResource("1_anb2f")
 
 [node name="ParticulasImpacto" type="GPUParticles3D" parent="." unique_id=1633483142]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46, 0.5, 0.501)
+transform = Transform3D(1, 0, 0, 0, -0.15658964, -0.98766375, 0, 0.98766375, -0.15658964, -0.67363894, 1.2810621, 1.4156435)
 emitting = false
 amount = 12
 one_shot = true
@@ -55,3 +55,22 @@ mesh = ExtResource("2_anb2f")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=410362961]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.006652117, 0.006551385, -0.0029406548)
 shape = SubResource("BoxShape3D_oxqvr")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1519421832]
+transform = Transform3D(-0.06419569, 0.9971606, -0.039368078, -0.4754956, 0.0041193515, 0.8797085, 0.8773726, 0.07519287, 0.47388104, 0, 0, 0)
+light_color = Color(2.5027991e-06, 0.8933793, 0.27330446, 1)
+spot_range = 4.9165406
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=53224456]
+light_color = Color(0.95625514, 0.95508856, 0.98944944, 1)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="OmniLight3D" unique_id=1921810115]
+transform = Transform3D(0.92456424, 0.38102615, 0, -0.38102615, 0.92456424, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="OmniLight3D" unique_id=497053656]
+transform = Transform3D(0.020984327, 0.7047974, -0.7090982, -0.5155045, 0.61532986, 0.59634244, 0.85662997, 0.35302946, 0.37623847, -2.362889, 1.3158779, 1.448633)
+light_color = Color(0.6576723, 0.7282628, 2.9263496e-05, 1)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="OmniLight3D" unique_id=1534569034]
+transform = Transform3D(-0.6454866, 0.377094, 0.6641893, 0.42951763, -0.53985614, 0.7239268, 0.63155514, 0.75256604, 0.18650141, 1.9458895, 1.7878246, 0.05144596)
+light_color = Color(0.32941177, 1, 0.18039216, 1)
