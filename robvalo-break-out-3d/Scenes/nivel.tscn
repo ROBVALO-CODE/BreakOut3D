@@ -147,9 +147,9 @@ omni_range = 9.0
 omni_shadow_mode = 0
 
 [node name="LuzPrincipal" type="OmniLight3D" parent="LucesCamara" unique_id=2092348108]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.095674515, 28.584976, -16.568413)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.095674515, 17.62282, -10.265829)
 light_color = Color(0.8398083, 0.5611797, 0.31506732, 1)
-light_energy = 8.0
+light_energy = 6.5
 shadow_enabled = true
 omni_range = 36.0
 omni_attenuation = 0.4
