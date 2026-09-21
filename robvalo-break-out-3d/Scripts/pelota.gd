@@ -14,6 +14,11 @@ var initvelocity: Vector3 = ballSpeed * Vector3.FORWARD
 @onready var bloques: Node3D = $"../Bloques"
 @onready var nivel: Node3D = $".."
 
+# Referencia a la luz central en la escena
+@onready var LuzCentro: OmniLight3D = $"../LucesCamara/LuzCentro"
+@onready var LuzDer: OmniLight3D = $"../LucesCamara/LuzDer"
+@onready var LuzIzq: OmniLight3D = $"../LucesCamara/LuzIzq"
+
 func _ready() -> void:
 	# Aumentar la velocidad automáticamente si el archivo actual es nivel2.tscn
 	if get_tree().current_scene.scene_file_path.ends_with("nivel2.tscn"):
@@ -53,6 +58,16 @@ func _on_body_entered(body: Node) -> void:
 					get_tree().change_scene_to_file("res://Scenes/nivel2.tscn")
 
 func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
+	# Crear lista con las tres luces (C,D,I) y asi aplicar el flash a cada una
+	var luces = [LuzCentro, LuzDer, LuzIzq]
+	for luz in luces:
+		if luz:
+			Efectos.flash(luz, "light_color", Color.BLUE, 0.2, self)
+	# Cambia la luz a azul cuando la pelota se cae/sale del mapa
+	#if LuzCentro:
+		#Efectos.flash(LuzCentro, "light_color", Color.BLUE, 0.1, self)
+		
+		
 	nivel.disparar_explosion(global_position)
 	state = GameState.Idle
 	linear_velocity = Vector3.ZERO
