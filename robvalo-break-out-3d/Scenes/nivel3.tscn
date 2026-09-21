@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cen1earticvhe" path="res://Scenes/pelota.tscn" id="6_kexsx"]
 [ext_resource type="Script" uid="uid://10ijnogeoio0" path="res://Scripts/pelota.gd" id="7_io5dh"]
 [ext_resource type="PackedScene" uid="uid://gft3k7plcg38" path="res://Scenes/Hud.tscn" id="8_4f8w4"]
+[ext_resource type="Script" uid="uid://cwjn8q0256mbc" path="res://Scripts/directional_light_3d.gd" id="8_0276w"]
 [ext_resource type="Material" uid="uid://bk0jsqtidkcsh" path="res://Materials/ball/emissionMate.tres" id="9_xhxus"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13qdw"]
@@ -157,8 +158,9 @@ omni_shadow_mode = 0
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="LucesCamara" unique_id=554169703]
 transform = Transform3D(-0.6383161, -0.76113576, 0.11500114, 0.6782394, -0.48544407, 0.55166626, -0.36406627, 0.4301356, 0.82609886, 2, 10.610474, 11.194946)
 light_color = Color(0.5455379, 0.40618238, 0.68177384, 1)
-light_energy = 0.883
+light_energy = 0.3
 light_angular_distance = 1.0
+script = ExtResource("8_0276w")
 
 [node name="Hud" parent="." unique_id=1790039073 instance=ExtResource("8_4f8w4")]
 
