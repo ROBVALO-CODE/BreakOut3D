@@ -11,38 +11,58 @@ extends Control
 @onready var FloatingText: Label = $ScoreLabel/FloatingText
 var floating_tween: Tween
 
+@onready var menu_pausa = get_node("/root/Nivel/Canvas_Layer/menu_pausa")
+@onready var ball_manager = get_node("/root/Nivel/BallManager")
+
 func _ready() -> void:
-	#Si las vidas empiezan en 0 o menos actualiza el
-	#HUD a 3 vidas
+	# Corrige las vidas iniciales.
 	if lives <= 0:
 		lives = 3
-	update_hud()
-	
-	# El texto flotante comienza oculto
+
+	# El texto flotante inicia oculto.
 	FloatingText.visible = false
 	update_hud()
-	
-	if ball:
-		#Conecta el notificador de la Pelota con screen_exited
-		#para asegurarse de que avise cuando la pelota salga de
-		#la vista de acuerdo a lo establecido en los parametros
-		var notifier = ball.get_node("VisibleOnScreenNotifier3D")
-		if notifier and not notifier.is_connected("screen_exited", Callable(self, "_on_ball_exited")):
-			notifier.connect("screen_exited", Callable(self, "_on_ball_exited"))
-		
-		#Verifica si la señal ya está conectada para evitar conectarla dos veces por error.
-		if not ball.is_connected("block_destroyed", Callable(self, "_on_block_destroyed")):
-			ball.connect("block_destroyed", Callable(self, "_on_block_destroyed"))
 
-func _on_ball_exited() -> void:
+	if ball_manager:
+		# Descuenta una vida solamente cuando
+		# BallManager confirma que no quedan pelotas.
+		if not ball_manager.round_lost.is_connected(
+			_on_round_lost
+		):
+			ball_manager.round_lost.connect(
+				_on_round_lost
+			)
+
+		# Suma puntos por los bloques destruidos
+		# por cualquiera de las pelotas.
+		if not ball_manager.any_block_destroyed.is_connected(
+			_on_block_destroyed
+		):
+			ball_manager.any_block_destroyed.connect(
+				_on_block_destroyed
+			)
+
+func _on_round_lost() -> void:
+	# BallManager llama esta función solamente
+	# cuando cayeron todas las pelotas.
+	if lives <= 0:
+		return
+
 	lives -= 1
 	update_hud()
-	
+
 	if lives <= 0:
 		if ball:
 			ball.state = Pelota.GameState.GameOver
-		
-		SceneManager.last_level_path = get_tree().current_scene.scene_file_path
+			ball.linear_velocity = Vector3.ZERO
+			ball.angular_velocity = Vector3.ZERO
+
+		SceneManager.last_level_path = (
+			get_tree()
+			.current_scene
+			.scene_file_path
+		)
+
 		_go_to_game_over()
 	
 func _go_to_game_over() -> void:
@@ -94,7 +114,7 @@ func show_floating_points(amount: int) -> void:
 func update_hud() -> void:
 	if LivesLabel:
 		LivesLabel.text = "x " + str(lives)
-	if FloatingText:
+	if ScoreLabel:
 		#Actualiza el marcador con el puntaje en formato de cuatro dígitos
 		ScoreLabel.text = "SCORE: " + "%04d" % points
 		

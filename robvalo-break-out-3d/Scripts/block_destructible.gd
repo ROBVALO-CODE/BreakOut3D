@@ -4,6 +4,10 @@ class_name Block extends StaticBody3D
 
 @export var vida: float = 1.0
 
+# Se activa solamente en el bloque
+# que debe entregar el DuplicateBall.
+@export var drops_duplicateball: bool = false
+
 @onready var mesh: MeshInstance3D = $MeshInstance3D
 @onready var particulas_impacto: GPUParticles3D = $ParticulasImpacto
 @onready var sonido_rotura: AudioStreamPlayer3D = $SonidoRotura
