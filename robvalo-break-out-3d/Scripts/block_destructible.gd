@@ -11,6 +11,7 @@ const POWER_UP_SCENE := preload("res://Scenes/power_up_alargar.tscn")
 # Se activa en los bloques que deben entregar
 # una vida adicional.
 @export var drops_extralife: bool = false
+@export var tiene_power_up: bool = false
 
 @onready var mesh: MeshInstance3D = $MeshInstance3D
 @onready var particulas_impacto: GPUParticles3D = $ParticulasImpacto
