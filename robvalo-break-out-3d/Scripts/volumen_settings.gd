@@ -9,6 +9,12 @@ signal closed
 
 const SAVE_PATH := "user://settings.cfg"
 
+# Sonido cortito que se reproduce al soltar el slider de SFX,
+# para escuchar el cambio de volumen al instante
+const SFX_PREVIEW_SOUND := preload("res://Audio/AudioRaquetaRebote/freesound_community-ball-bounce-94853.mp3")
+var sfx_preview_player: AudioStreamPlayer
+
+
 var master_bus: int = AudioServer.get_bus_index("Master")
 var music_bus: int = AudioServer.get_bus_index("Music")
 var sfx_bus: int = AudioServer.get_bus_index("SFX")
