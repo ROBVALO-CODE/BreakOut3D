@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5g28gj0d08mx"
-path="res://.godot/imported/BreakOut-Volumen setting.png-9a1572a0835c8092a221f510c85920a5.ctex"
+uid="uid://wviyhdjqj8h"
+path="res://.godot/imported/PauseMenuIcon.png-9bc3988359a648a4068bd5d32367ed53.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Fondos/BreakOut-Volumen setting.png"
-dest_files=["res://.godot/imported/BreakOut-Volumen setting.png-9a1572a0835c8092a221f510c85920a5.ctex"]
+source_file="res://Images/Iconos/PauseMenuIcon.png"
+dest_files=["res://.godot/imported/PauseMenuIcon.png-9bc3988359a648a4068bd5d32367ed53.ctex"]
 
 [params]
 

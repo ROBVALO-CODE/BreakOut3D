@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://luox73owbusa" path="res://Scripts/hud.gd" id="1_8vcfy"]
 [ext_resource type="Texture2D" uid="uid://csosxretd1yce" path="res://Materials/Hud/Pelota.png" id="1_chfh5"]
+[ext_resource type="Texture2D" uid="uid://wviyhdjqj8h" path="res://Images/Iconos/PauseMenuIcon.png" id="3_3jfbl"]
+[ext_resource type="Texture2D" uid="uid://jdny1q7fno8w" path="res://Images/Iconos/PauseMenuPressedIcon.png" id="4_3j5vs"]
 
 [node name="Hud" type="Control" unique_id=1790039073]
 layout_mode = 3
@@ -10,32 +12,53 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_8vcfy")
 
-[node name="LivesLabel" type="Label" parent="." unique_id=85771674]
+[node name="Contenedor" type="ColorRect" parent="." unique_id=803241332]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1880.0
+offset_bottom = 1040.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="LivesTextLabel" type="Label" parent="Contenedor" unique_id=461101773]
+texture_filter = 1
+layout_mode = 1
+offset_right = 145.0
+offset_bottom = 83.0
+theme_override_font_sizes/font_size = 60
+text = "Lives"
+
+[node name="LivesLabel" type="Label" parent="Contenedor/LivesTextLabel" unique_id=85771674]
 texture_filter = 1
 layout_mode = 0
-offset_left = 109.0
-offset_top = -4.0
-offset_right = 176.0
-offset_bottom = 79.0
+offset_left = 236.02002
+offset_right = 303.02002
+offset_bottom = 83.0
 theme_override_font_sizes/font_size = 60
 text = "x3"
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1032332441]
-position = Vector2(62.18, 48)
+[node name="Sprite2D" type="Sprite2D" parent="Contenedor/LivesTextLabel" unique_id=1032332441]
+position = Vector2(189.19998, 52)
 scale = Vector2(0.12, 0.128)
 texture = ExtResource("1_chfh5")
 
-[node name="ScoreLabel" type="Label" parent="." unique_id=867268132]
+[node name="ScoreLabel" type="Label" parent="Contenedor" unique_id=867268132]
 texture_filter = 1
-layout_mode = 0
-offset_left = 1608.0
-offset_top = 11.0
-offset_right = 1968.0
-offset_bottom = 94.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -180.0
+offset_right = 180.0
+offset_bottom = 83.0
+grow_horizontal = 2
 theme_override_font_sizes/font_size = 45
 text = "SCORE: 0000"
 
-[node name="FloatingText" type="Label" parent="ScoreLabel" unique_id=163359842]
+[node name="FloatingText" type="Label" parent="Contenedor/ScoreLabel" unique_id=163359842]
 layout_mode = 0
 offset_left = 174.0
 offset_top = 70.0
@@ -44,3 +67,16 @@ offset_bottom = 125.0
 theme_override_colors/font_color = Color(0.69803923, 1, 0.83137256, 1)
 theme_override_font_sizes/font_size = 40
 text = "+100"
+
+[node name="MenuPauseButton" type="TextureButton" parent="Contenedor" unique_id=137669039]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -103.0
+offset_bottom = 75.0
+grow_horizontal = 0
+texture_normal = ExtResource("3_3jfbl")
+texture_pressed = ExtResource("4_3j5vs")
+
+[connection signal="pressed" from="Contenedor/MenuPauseButton" to="." method="_on_menu_pause_button_pressed"]
