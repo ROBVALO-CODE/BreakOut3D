@@ -12,7 +12,7 @@ extends Control
 var floating_tween: Tween
 
 @onready var menu_pausa = get_node("/root/Nivel/Canvas_Layer/menu_pausa")
-@onready var ball_manager = get_node("/root/Nivel/BallManager")
+@onready var power_up_manager = get_node("/root/Nivel/PowerUpManager")
 
 func _ready() -> void:
 	# Corrige las vidas iniciales.
@@ -23,27 +23,36 @@ func _ready() -> void:
 	FloatingText.visible = false
 	update_hud()
 
-	if ball_manager:
+	if power_up_manager:
 		# Descuenta una vida solamente cuando
-		# BallManager confirma que no quedan pelotas.
-		if not ball_manager.round_lost.is_connected(
+		# PowerUpManager confirma que no quedan pelotas.
+		if not power_up_manager.round_lost.is_connected(
 			_on_round_lost
 		):
-			ball_manager.round_lost.connect(
+			power_up_manager.round_lost.connect(
 				_on_round_lost
 			)
 
 		# Suma puntos por los bloques destruidos
 		# por cualquiera de las pelotas.
-		if not ball_manager.any_block_destroyed.is_connected(
+		if not power_up_manager.any_block_destroyed.is_connected(
 			_on_block_destroyed
 		):
-			ball_manager.any_block_destroyed.connect(
+			power_up_manager.any_block_destroyed.connect(
 				_on_block_destroyed
+			)
+		
+		# Recibe la señal cuando la raqueta
+		# recoge un corazón.
+		if not power_up_manager.extra_life_collected.is_connected(
+			_on_extra_life_collected
+		):
+			power_up_manager.extra_life_collected.connect(
+				_on_extra_life_collected
 			)
 
 func _on_round_lost() -> void:
-	# BallManager llama esta función solamente
+	# PowerUpManager llama esta función solamente
 	# cuando cayeron todas las pelotas.
 	if lives <= 0:
 		return
@@ -64,6 +73,11 @@ func _on_round_lost() -> void:
 		)
 
 		_go_to_game_over()
+
+func _on_extra_life_collected() -> void:
+	# Aumenta una vida y actualiza el texto.
+	lives += 1
+	update_hud()
 	
 func _go_to_game_over() -> void:
 	await get_tree().create_timer(0.1).timeout

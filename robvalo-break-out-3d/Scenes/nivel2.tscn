@@ -8,9 +8,10 @@
 [ext_resource type="Script" uid="uid://yovcawgey3m" path="res://Scripts/raqueta.gd" id="5_nj6vl"]
 [ext_resource type="PackedScene" uid="uid://cen1earticvhe" path="res://Scenes/pelota.tscn" id="6_gho1a"]
 [ext_resource type="PackedScene" uid="uid://gft3k7plcg38" path="res://Scenes/Hud.tscn" id="8_bb8u3"]
-[ext_resource type="Script" uid="uid://dogka04jra5t1" path="res://Scripts/ball_manager.gd" id="8_yidnl"]
+[ext_resource type="Script" uid="uid://dogka04jra5t1" path="res://Scripts/power_up_manager.gd" id="8_yidnl"]
 [ext_resource type="Material" uid="uid://bk0jsqtidkcsh" path="res://Materials/ball/emissionMate.tres" id="9_mf6ls"]
 [ext_resource type="PackedScene" uid="uid://c3veck0yr5v4y" path="res://Scenes/DuplicateBallPowerUp.tscn" id="9_xb0f7"]
+[ext_resource type="PackedScene" uid="uid://da5idik3v8o14" path="res://Scenes/ExtraLifePowerUp.tscn" id="10_xb0f7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13qdw"]
 albedo_color = Color(0, 0.5005968, 0.46669424, 1)
@@ -190,7 +191,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.500165, 1.502419, -16.5180
 
 [node name="BlockDestructible2_17" parent="Bloques" unique_id=1319330212 instance=ExtResource("3_l8p0v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5213163, 1.502419, -12.669517)
-drops_multiball = true
 
 [node name="BlockDestructible2_16" parent="Bloques" unique_id=1606184979 instance=ExtResource("3_l8p0v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5132766, 1.502419, -12.669517)
@@ -250,10 +250,11 @@ script = ExtResource("5_nj6vl")
 [node name="Pelota" parent="." unique_id=580420776 instance=ExtResource("6_gho1a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, -3.71)
 
-[node name="BallManager" type="Node" parent="." unique_id=270370346]
+[node name="PowerUpManager" type="Node" parent="." unique_id=270370346]
 script = ExtResource("8_yidnl")
 ball_scene = ExtResource("6_gho1a")
 power_up_scene = ExtResource("9_xb0f7")
+extra_life_power_up_scene = ExtResource("10_xb0f7")
 
 [node name="LucesCamara" type="Node3D" parent="." unique_id=1511604597]
 

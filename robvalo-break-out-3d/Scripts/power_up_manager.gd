@@ -8,6 +8,8 @@ signal round_lost
 # El HUD recibe esta señal para sumar puntos.
 signal any_block_destroyed
 
+signal extra_life_collected
+
 
 # Escena de la pelota y del power-up.
 @export var ball_scene: PackedScene
@@ -22,6 +24,8 @@ signal any_block_destroyed
 @onready var pelota_original: Pelota = (
 	nivel.get_node("Pelota") as Pelota
 )
+
+@export var extra_life_power_up_scene: PackedScene
 
 
 # Indican cuáles pelotas continúan jugando.
@@ -84,7 +88,7 @@ func conectar_pelota(pelota: Pelota) -> void:
 
 
 func duplicate_ball() -> void:
-	print("BallManager recibió duplicate_ball()")
+	print("PowerUpManager recibió duplicate_ball()")
 
 	# Evita crear más de una copia.
 	if copia_activa:
@@ -95,7 +99,7 @@ func duplicate_ball() -> void:
 	if ball_scene == null:
 		push_error(
 			"No se asignó pelota.tscn "
-			+ "en Ball Scene."
+			+ "en PowerUpManager."
 		)
 		return
 
@@ -278,13 +282,17 @@ func _on_block_destroyed(block: Block) -> void:
 	# de las pelotas destruyó el bloque.
 	any_block_destroyed.emit()
 
-	# Solamente algunos bloques dan power-up.
-	if not block.drops_duplicateball:
-		return
+	# Guarda la posición antes de que
+	# el bloque sea eliminado completamente.
+	var posicion: Vector3 = block.global_position
 
-	crear_power_up(
-		block.global_position
-	)
+	# Revisa si entrega DuplicateBall.
+	if block.drops_duplicateball:
+		crear_power_up(posicion)
+
+	# Revisa si entrega una vida extra.
+	if block.drops_extralife:
+		crear_extra_life_power_up(posicion)
 
 
 func crear_power_up(posicion: Vector3) -> void:
@@ -302,7 +310,7 @@ func crear_power_up(posicion: Vector3) -> void:
 	if power_up == null:
 		push_error(
 			"La escena no tiene "
-			+ "multi_ball_power_up.gd."
+			+ "duplicate_power_up.gd."
 		)
 		return
 
@@ -322,3 +330,52 @@ func agregar_power_up(
 
 	# Aparece donde estaba el bloque.
 	power_up.global_position = posicion
+
+func give_extra_life() -> void:
+	# Le informa al HUD que debe sumar una vida.
+	extra_life_collected.emit()
+	
+func crear_extra_life_power_up(
+	posicion: Vector3
+) -> void:
+	# Comprueba que la escena esté asignada.
+	if extra_life_power_up_scene == null:
+		push_warning(
+			"No se asignó ExtraLifePowerUp.tscn."
+		)
+		return
+
+	# Crea una instancia del corazón.
+	var extra_life := (
+		extra_life_power_up_scene.instantiate()
+		as ExtraLifePowerUp
+	)
+
+	if extra_life == null:
+		push_error(
+			"ExtraLifePowerUp.tscn no tiene "
+			+ "el script extra_life_power_up.gd."
+		)
+		return
+
+	# Espera a que termine el proceso físico
+	# antes de agregar el nuevo objeto.
+	call_deferred(
+		"agregar_extra_life_power_up",
+		extra_life,
+		posicion
+	)
+
+
+func agregar_extra_life_power_up(
+	extra_life: ExtraLifePowerUp,
+	posicion: Vector3
+) -> void:
+	if not is_instance_valid(extra_life):
+		return
+
+	# Agrega el corazón directamente al nivel.
+	nivel.add_child(extra_life)
+
+	# Aparece donde estaba el bloque destruido.
+	extra_life.global_position = posicion

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://da5idik3v8o14"]
+
+[ext_resource type="Script" uid="uid://dv5fvuw2v3h6x" path="res://Scripts/extra_life_power_up.gd" id="1_2s3fv"]
+[ext_resource type="ArrayMesh" uid="uid://cop3ko7feu3ee" path="res://Meshes/HeartExtraLife.tres" id="1_2tt4w"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_c5gpc"]
+
+[node name="ExtraLifePowerUp" type="Area3D" unique_id=1636525592]
+script = ExtResource("1_2s3fv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=461383446]
+transform = Transform3D(1, 0, 0, 0, 0.17364821, 0.98480767, 0, -0.98480767, 0.17364821, 0, 0, 0)
+mesh = ExtResource("1_2tt4w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1390755876]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.33245683, -0.015369415, -0.46518075)
+shape = SubResource("SphereShape3D_c5gpc")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=1472033872]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
