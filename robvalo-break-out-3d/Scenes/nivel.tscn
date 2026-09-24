@@ -6,9 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://c6gwqy0id4gja" path="res://Scenes/raqueta.tscn" id="3_ly74u"]
 [ext_resource type="Script" uid="uid://yovcawgey3m" path="res://Scripts/raqueta.gd" id="4_bj26p"]
 [ext_resource type="PackedScene" uid="uid://cen1earticvhe" path="res://Scenes/pelota.tscn" id="4_dgjcf"]
-[ext_resource type="Script" uid="uid://10ijnogeoio0" path="res://Scripts/pelota.gd" id="6_ly74u"]
 [ext_resource type="PackedScene" uid="uid://gft3k7plcg38" path="res://Scenes/Hud.tscn" id="7_dgjcf"]
+[ext_resource type="Script" uid="uid://dogka04jra5t1" path="res://Scripts/power_up_manager.gd" id="8_lmxi0"]
+[ext_resource type="PackedScene" uid="uid://c3veck0yr5v4y" path="res://Scenes/DuplicateBallPowerUp.tscn" id="9_gs46s"]
 [ext_resource type="Material" uid="uid://bk0jsqtidkcsh" path="res://Materials/ball/emissionMate.tres" id="9_l6yf2"]
+[ext_resource type="PackedScene" uid="uid://da5idik3v8o14" path="res://Scenes/ExtraLifePowerUp.tscn" id="9_ogyac"]
 [ext_resource type="PackedScene" uid="uid://ux37ij413d7" path="res://Scenes/UI/menu_pausa.tscn" id="10_fhcna"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13qdw"]
@@ -81,6 +83,7 @@ mesh = SubResource("PlaneMesh_xrivr")
 
 [node name="BlockDestructible" parent="Bloques" unique_id=1066243555 instance=ExtResource("2_bj26p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4370933, 1.3991024, -16.514156)
+drops_duplicateball = true
 
 [node name="BlockDestructible2" parent="Bloques" unique_id=1398902139 instance=ExtResource("2_bj26p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4709144, 1.3991024, -16.514156)
@@ -111,10 +114,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, -2.4560263)
 script = ExtResource("4_bj26p")
 
 [node name="Pelota" parent="." unique_id=580420776 instance=ExtResource("4_dgjcf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, -3.717)
-script = ExtResource("6_ly74u")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, -3.71)
 
-[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="Pelota" unique_id=1077600122]
+[node name="PowerUpManager" type="Node" parent="." unique_id=1341185673]
+script = ExtResource("8_lmxi0")
+ball_scene = ExtResource("4_dgjcf")
+power_up_scene = ExtResource("9_gs46s")
+extra_life_power_up_scene = ExtResource("9_ogyac")
 
 [node name="LucesCamara" type="Node3D" parent="." unique_id=1511604597]
 
@@ -175,6 +181,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.309902, -0.40547752)
 
 [node name="menu_pausa" parent="Canvas_Layer" unique_id=1008087746 instance=ExtResource("10_fhcna")]
 process_mode = 3
-
-[connection signal="body_entered" from="Pelota" to="Pelota" method="_on_body_entered"]
-[connection signal="screen_exited" from="Pelota/VisibleOnScreenNotifier3D" to="Pelota" method="_on_visible_on_screen_notifier_3d_screen_exited"]

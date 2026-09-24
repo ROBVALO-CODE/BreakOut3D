@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://c36xevc2sm64f" path="res://Scenes/BlockDestructibleAzul.tscn" id="4_yidnl"]
 [ext_resource type="Script" uid="uid://yovcawgey3m" path="res://Scripts/raqueta.gd" id="5_nj6vl"]
 [ext_resource type="PackedScene" uid="uid://cen1earticvhe" path="res://Scenes/pelota.tscn" id="6_gho1a"]
-[ext_resource type="Script" uid="uid://10ijnogeoio0" path="res://Scripts/pelota.gd" id="7_wxvsr"]
 [ext_resource type="PackedScene" uid="uid://gft3k7plcg38" path="res://Scenes/Hud.tscn" id="8_bb8u3"]
+[ext_resource type="Script" uid="uid://dogka04jra5t1" path="res://Scripts/power_up_manager.gd" id="8_yidnl"]
 [ext_resource type="Material" uid="uid://bk0jsqtidkcsh" path="res://Materials/ball/emissionMate.tres" id="9_mf6ls"]
 [ext_resource type="PackedScene" uid="uid://ux37ij413d7" path="res://Scenes/UI/menu_pausa.tscn" id="11_yidnl"]
 
@@ -247,10 +247,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, -2.4560263)
 script = ExtResource("5_nj6vl")
 
 [node name="Pelota" parent="." unique_id=580420776 instance=ExtResource("6_gho1a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, -3.717)
-script = ExtResource("7_wxvsr")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, -3.71)
 
-[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="Pelota" unique_id=1077600122]
+[node name="PowerUpManager" type="Node" parent="." unique_id=270370346]
+script = ExtResource("8_yidnl")
+ball_scene = ExtResource("6_gho1a")
+power_up_scene = ExtResource("9_xb0f7")
+extra_life_power_up_scene = ExtResource("10_xb0f7")
 
 [node name="LucesCamara" type="Node3D" parent="." unique_id=1511604597]
 
