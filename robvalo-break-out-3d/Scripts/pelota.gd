@@ -77,9 +77,7 @@ func _on_body_entered(body: Node) -> void:
 		):
 			state = GameState.GameOver
 		else:
-			get_tree().change_scene_to_file(
-				"res://Scenes/nivel2.tscn"
-			)
+			get_tree().call_deferred("change_scene_to_file", "res://Scenes/nivel2.tscn")
 
 func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
 	# Solamente reporta pelotas que jugaban.

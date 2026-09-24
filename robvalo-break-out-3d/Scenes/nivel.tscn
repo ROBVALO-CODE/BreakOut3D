@@ -55,7 +55,7 @@ scale_curve = SubResource("CurveTexture_xvw5w")
 [sub_resource type="BoxMesh" id="BoxMesh_lmxi0"]
 material = ExtResource("9_l6yf2")
 
-[node name="Nivel" type="Node3D" unique_id=1709371479]
+[node name="Nivel2" type="Node3D" unique_id=1709371479]
 script = ExtResource("1_ajbqy")
 
 [node name="SueloMapa" type="GridMap" parent="." unique_id=2145425342]
@@ -117,7 +117,7 @@ script = ExtResource("4_bj26p")
 [node name="Pelota" parent="." unique_id=580420776 instance=ExtResource("4_dgjcf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, -3.71)
 
-[node name="PowerUpManager" type="Node" parent="." unique_id=1341185673]
+[node name="PowerUpManager" type="Node" parent="." unique_id=1341185673 groups=["ball_manager"]]
 script = ExtResource("8_lmxi0")
 ball_scene = ExtResource("4_dgjcf")
 power_up_scene = ExtResource("9_gs46s")
