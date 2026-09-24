@@ -46,7 +46,7 @@ func _set_bus_volume(bus_index: int, linear_value: float) -> void:
 
 func _on_back_button_pressed() -> void:
 	closed.emit()
-	if get_tree().current_scene.scene_file_path == "res://Scenes/UI/ajustes_volumen.tscn":
+	if get_tree().current_scene.scene_file_path == "res://Scenes/UI/Volumen_settings.tscn":
 		get_tree().change_scene_to_file("res://Scenes/UI/menu_principal.tscn")
 
 
