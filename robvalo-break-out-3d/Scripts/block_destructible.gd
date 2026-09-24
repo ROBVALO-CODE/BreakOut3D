@@ -1,12 +1,15 @@
 class_name Block extends StaticBody3D
 #Crea la clase Block para diferenciarlo de los
 #demas elementos.
-
+const POWER_UP_SCENE := preload("res://Scenes/power_up_alargar.tscn")
 @export var vida: float = 1.0
-
+@export var tiene_power_up: bool = false
+@export var power_up_scene: PackedScene
 @onready var mesh: MeshInstance3D = $MeshInstance3D
 @onready var particulas_impacto: GPUParticles3D = $ParticulasImpacto
 @onready var sonido_rotura: AudioStreamPlayer3D = $SonidoRotura
+@export_range(0.0, 1.0) var probabilidad_power_up: float = 0.15
+
 
 ## Le hace daño al bloque. Cualquier cosa del juego puede llamarla sin
 ## saber nada de cómo funciona por dentro. Devuelve la vida restante.
@@ -25,6 +28,8 @@ func recibir_dano(cantidad: float) -> float:
 ## Saca las particulas y el sonido del bloque antes de borrarlo, para que
 ## la animación y el audio terminen aunque el bloque ya no exista.
 func _liberar_efectos_y_destruir() -> void:
+	_soltar_power_up()
+	
 	var pos_global := particulas_impacto.global_transform
 	remove_child(particulas_impacto)
 	get_tree().root.add_child(particulas_impacto)
@@ -38,3 +43,10 @@ func _liberar_efectos_y_destruir() -> void:
 	sonido_rotura.finished.connect(sonido_rotura.queue_free)
 
 	queue_free()
+	
+func _soltar_power_up() -> void:
+	if not tiene_power_up:
+		return
+	var p := POWER_UP_SCENE.instantiate()
+	p.position = position
+	get_parent().add_child.call_deferred(p)
