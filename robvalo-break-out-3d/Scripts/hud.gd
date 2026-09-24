@@ -1,21 +1,26 @@
 extends Control
 
 @export var lives: int = 3
-#Define las vidas iniciales y las expone en el Inspector.
+# Define las vidas iniciales y las expone en el Inspector.
 @onready var LivesLabel: Label = $Contenedor/LivesTextLabel/LivesLabel
-# Crea una referencia al nodo label en el HUD y 
-#una al nodo Pelota dentro de la jerarquía del juego
-@onready var ball: Pelota = get_node("/root/Nivel/Pelota")
-@onready var ScoreLabel : Label = $Contenedor/ScoreLabel
+@onready var ScoreLabel: Label = $Contenedor/ScoreLabel
 @export var points: int = 0
 @onready var FloatingText: Label = $Contenedor/ScoreLabel/FloatingText
 var floating_tween: Tween
-@onready var menu_pausa = get_node("/root/Nivel/Canvas_Layer/menu_pausa")
 
-@onready var menu_pausa = get_node("/root/Nivel/Canvas_Layer/menu_pausa")
-@onready var power_up_manager = get_node("/root/Nivel/PowerUpManager")
+# Nodos obtenidos dinámicamente según la escena actual
+var ball: Pelota
+var menu_pausa: Node
+var power_up_manager: Node
 
 func _ready() -> void:
+	# Obtener referencias dinámicas a la escena actual (funciona en Nivel, Nivel2, Nivel3, etc.)
+	var current_scene = get_tree().current_scene
+	if current_scene:
+		ball = current_scene.get_node_or_null("Pelota") as Pelota
+		menu_pausa = current_scene.get_node_or_null("Canvas_Layer/menu_pausa")
+		power_up_manager = current_scene.get_node_or_null("PowerUpManager")
+
 	# Corrige las vidas iniciales.
 	if lives <= 0:
 		lives = 3
@@ -27,30 +32,18 @@ func _ready() -> void:
 	if power_up_manager:
 		# Descuenta una vida solamente cuando
 		# PowerUpManager confirma que no quedan pelotas.
-		if not power_up_manager.round_lost.is_connected(
-			_on_round_lost
-		):
-			power_up_manager.round_lost.connect(
-				_on_round_lost
-			)
+		if not power_up_manager.round_lost.is_connected(_on_round_lost):
+			power_up_manager.round_lost.connect(_on_round_lost)
 
 		# Suma puntos por los bloques destruidos
 		# por cualquiera de las pelotas.
-		if not power_up_manager.any_block_destroyed.is_connected(
-			_on_block_destroyed
-		):
-			power_up_manager.any_block_destroyed.connect(
-				_on_block_destroyed
-			)
+		if not power_up_manager.any_block_destroyed.is_connected(_on_block_destroyed):
+			power_up_manager.any_block_destroyed.connect(_on_block_destroyed)
 		
 		# Recibe la señal cuando la raqueta
 		# recoge un corazón.
-		if not power_up_manager.extra_life_collected.is_connected(
-			_on_extra_life_collected
-		):
-			power_up_manager.extra_life_collected.connect(
-				_on_extra_life_collected
-			)
+		if not power_up_manager.extra_life_collected.is_connected(_on_extra_life_collected):
+			power_up_manager.extra_life_collected.connect(_on_extra_life_collected)
 
 func _on_round_lost() -> void:
 	# PowerUpManager llama esta función solamente
@@ -62,17 +55,12 @@ func _on_round_lost() -> void:
 	update_hud()
 
 	if lives <= 0:
-		if ball:
+		if is_instance_valid(ball):
 			ball.state = Pelota.GameState.GameOver
 			ball.linear_velocity = Vector3.ZERO
 			ball.angular_velocity = Vector3.ZERO
 
-		SceneManager.last_level_path = (
-			get_tree()
-			.current_scene
-			.scene_file_path
-		)
-
+		SceneManager.last_level_path = get_tree().current_scene.scene_file_path
 		_go_to_game_over()
 
 func _on_extra_life_collected() -> void:
@@ -82,9 +70,9 @@ func _on_extra_life_collected() -> void:
 	
 func _go_to_game_over() -> void:
 	await get_tree().create_timer(0.1).timeout
-	SceneManager.change_scene("res://Scenes/UI/Game_over.tscn")	
+	SceneManager.change_scene("res://Scenes/UI/Game_over.tscn")    
 	
-func _on_block_destroyed()-> void:
+func _on_block_destroyed() -> void:
 	points += 100
 	update_hud()
 	var floating_points = 100
@@ -125,14 +113,13 @@ func show_floating_points(amount: int) -> void:
 
 	FloatingText.visible = false
 
-			
 func update_hud() -> void:
 	if LivesLabel:
 		LivesLabel.text = "x " + str(lives)
 	if ScoreLabel:
-		#Actualiza el marcador con el puntaje en formato de cuatro dígitos
+		# Actualiza el marcador con el puntaje en formato de cuatro dígitos
 		ScoreLabel.text = "SCORE: " + "%04d" % points
 
 func _on_menu_pause_button_pressed() -> void:
-	if (menu_pausa and menu_pausa.has_method("toggle_pause")):
+	if menu_pausa and menu_pausa.has_method("toggle_pause"):
 		menu_pausa.toggle_pause()
