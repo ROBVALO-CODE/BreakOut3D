@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://c6gwqy0id4gja" path="res://Scenes/raqueta.tscn" id="4_d55r3"]
 [ext_resource type="Script" uid="uid://yovcawgey3m" path="res://Scripts/raqueta.gd" id="5_8t6kx"]
 [ext_resource type="PackedScene" uid="uid://cen1earticvhe" path="res://Scenes/pelota.tscn" id="6_kexsx"]
-[ext_resource type="Script" uid="uid://10ijnogeoio0" path="res://Scripts/pelota.gd" id="7_io5dh"]
 [ext_resource type="PackedScene" uid="uid://gft3k7plcg38" path="res://Scenes/Hud.tscn" id="8_4f8w4"]
 [ext_resource type="Material" uid="uid://bk0jsqtidkcsh" path="res://Materials/ball/emissionMate.tres" id="9_xhxus"]
 
@@ -111,9 +110,8 @@ script = ExtResource("5_8t6kx")
 
 [node name="Pelota" parent="." unique_id=580420776 instance=ExtResource("6_kexsx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, -3.717)
-script = ExtResource("7_io5dh")
 
-[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="Pelota" unique_id=1077600122]
+[node name="VisibleOnScreenNotifier3D2" type="VisibleOnScreenNotifier3D" parent="Pelota" unique_id=1077600122]
 
 [node name="LucesCamara" type="Node3D" parent="." unique_id=1511604597]
 
@@ -169,6 +167,3 @@ draw_pass_1 = SubResource("BoxMesh_lmxi0")
 
 [node name="LineaPerdida" type="Marker3D" parent="." unique_id=659031820]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.309902, -0.40547752)
-
-[connection signal="body_entered" from="Pelota" to="Pelota" method="_on_body_entered"]
-[connection signal="screen_exited" from="Pelota/VisibleOnScreenNotifier3D" to="Pelota" method="_on_visible_on_screen_notifier_3d_screen_exited"]
