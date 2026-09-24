@@ -4,6 +4,9 @@ var como_jugar_scene = preload("res://Scenes/UI/como_jugar.tscn")
 var power_ups_scene = preload("res://Scenes/UI/power_ups.tscn")
 var como_jugar_instancia = null
 var power_ups_instancia = null
+var ajustes_volumen_scene = preload("res://Scenes/UI/Volumen_settings.tscn")
+var ajustes_volumen_instancia = null
+
 
 func _input(event: InputEvent) -> void:
 	#Esto de arriba es necesario porque se va a generar un evento input
@@ -19,7 +22,12 @@ func toggle_pause() -> void:
 		
 	#ahora si, hagamos las funciones de los botones
 func _on_settings_pause_menu_button_pressed() -> void:
-	pass # Replace with function body.
+	if ajustes_volumen_instancia == null:
+		ajustes_volumen_instancia = ajustes_volumen_scene.instantiate()
+		add_child(ajustes_volumen_instancia)
+		ajustes_volumen_instancia.closed.connect(_cerrar_ajustes_volumen)
+	else:
+		ajustes_volumen_instancia.visible = true
 
 func _on_howtoplay_pause_menu_button_pressed() -> void:
 	if como_jugar_instancia == null:
@@ -48,6 +56,8 @@ func _cerrar_power_ups() -> void:
 		power_ups_instancia = null
 
 func _on_home_button_pressed() -> void:
+	get_tree().paused = false
+	MusicPlayer.stop()
 	get_tree().change_scene_to_file("res://Scenes/UI/menu_principal.tscn")
 
 func _on_resume_button_pressed() -> void:
@@ -58,3 +68,8 @@ func _cerrar_como_jugar() -> void:
 	if como_jugar_instancia:
 		como_jugar_instancia.queue_free() # Elimina la ventana flotante
 		como_jugar_instancia = null
+		
+func _cerrar_ajustes_volumen() -> void:
+	if ajustes_volumen_instancia:
+		ajustes_volumen_instancia.queue_free()
+		ajustes_volumen_instancia = null

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c3veck0yr5v4y"]
+
+[ext_resource type="Script" uid="uid://cu2y1iudxqcmd" path="res://Scripts/duplicate_power_up.gd" id="1_01fqk"]
+[ext_resource type="Material" uid="uid://hg1oo0285dwo" path="res://Materials/Blocks/LegoGoldMaterial.tres" id="2_4oysk"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_tuglw"]
+material = ExtResource("2_4oysk")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ykc8j"]
+
+[node name="DuplicateBallPowerUp" type="Area3D" unique_id=1297582348]
+script = ExtResource("1_01fqk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1662174578]
+mesh = SubResource("SphereMesh_tuglw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=184812074]
+shape = SubResource("SphereShape3D_ykc8j")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=782054873]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

@@ -3,8 +3,15 @@ class_name Block extends StaticBody3D
 #demas elementos.
 const POWER_UP_SCENE := preload("res://Scenes/power_up_alargar.tscn")
 @export var vida: float = 1.0
-@export var tiene_power_up: bool = false
-@export var power_up_scene: PackedScene
+
+# Se activa solamente en el bloque
+# que debe entregar el DuplicateBall.
+@export var drops_duplicateball: bool = false
+
+# Se activa en los bloques que deben entregar
+# una vida adicional.
+@export var drops_extralife: bool = false
+
 @onready var mesh: MeshInstance3D = $MeshInstance3D
 @onready var particulas_impacto: GPUParticles3D = $ParticulasImpacto
 @onready var sonido_rotura: AudioStreamPlayer3D = $SonidoRotura
