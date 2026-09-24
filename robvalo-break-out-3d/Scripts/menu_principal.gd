@@ -15,7 +15,7 @@ func _on_power_ups_button_pressed() -> void:
 
 
 func _on_settings_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/UI/ajustes_volumen.tscn")
+	get_tree().change_scene_to_file("res://Scenes/UI/Volumen_settings.tscn")
 
 func _on_exit_button_pressed() -> void:
 	get_tree().quit()
