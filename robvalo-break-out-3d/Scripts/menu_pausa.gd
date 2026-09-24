@@ -48,6 +48,7 @@ func _cerrar_power_ups() -> void:
 		power_ups_instancia = null
 
 func _on_home_button_pressed() -> void:
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/UI/menu_principal.tscn")
 
 func _on_resume_button_pressed() -> void:
