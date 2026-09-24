@@ -1,12 +1,14 @@
 extends Control
 
-# Timbre para avisar al menú de pausa que nos cerramos
 signal closed
 
 func _on_button_pressed() -> void:
-	# 1. Avisar al menú de pausa si está escuchando
+	# 1. Emitimos la señal por si está instanciada sobre la pausa
 	closed.emit()
 	
-	# 2. Si venimos directamente desde el Menú Principal, cambiamos de escena
-	if get_tree().current_scene.scene_file_path == "res://Scenes/UI/power_ups.tscn":
+	# 2. Verificamos si esta escena es la escena RAÍZ actual del juego
+	# Si 'current_scene' es este mismo nodo, significa que se cargó con change_scene_to_file
+	if get_parent() == get_tree().root:
 		get_tree().change_scene_to_file("res://Scenes/UI/menu_principal.tscn")
+	else:
+		pass
