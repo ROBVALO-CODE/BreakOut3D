@@ -93,6 +93,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.502248, 1.502419, -10.4969
 
 [node name="BlockDestructible2_2" parent="Bloques" unique_id=723213130 instance=ExtResource("3_l8p0v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4989574, 1.502419, -16.518093)
+tiene_power_up = true
 
 [node name="BlockDestructible2_4" parent="Bloques" unique_id=388302073 instance=ExtResource("3_l8p0v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.512069, 1.502419, -12.669517)
@@ -207,6 +208,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4461575, 1.502419, -8.60763
 
 [node name="BlockDestructible2_9" parent="Bloques" unique_id=701093562 instance=ExtResource("3_l8p0v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4760075, 1.502419, -9.4446335)
+tiene_power_up = true
 
 [node name="BlockDestructible2_8" parent="Bloques" unique_id=1608286555 instance=ExtResource("3_l8p0v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4461575, 1.502419, -8.60763)
@@ -228,6 +230,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4160545, 1.502497, -15.5504
 
 [node name="BlockDestructible3_14" parent="Bloques" unique_id=1780376483 instance=ExtResource("4_yidnl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.495581, 1.502497, -13.58522)
+tiene_power_up = true
 
 [node name="BlockDestructible3_13" parent="Bloques" unique_id=1087714897 instance=ExtResource("4_yidnl")]
 transform = Transform3D(0.0035544122, 0, -0.9999937, 0, 1, 0, 0.9999937, 0, 0.0035544122, -4.573394, 1.502497, -11.510483)

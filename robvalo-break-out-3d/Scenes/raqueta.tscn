@@ -46,7 +46,7 @@ _surfaces = [{
 }]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xrivr"]
-height = 3.0
+height = 3.75
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3fcsw"]
 height = 3.1
@@ -66,7 +66,7 @@ transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0
 mesh = SubResource("ArrayMesh_2xsup")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1834860367]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.125, 5.4639235e-09, 0)
 shape = SubResource("CapsuleShape3D_xrivr")
 
 [node name="DetectorGolpe" type="Area3D" parent="." unique_id=1904555741]
@@ -76,3 +76,6 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectorGolpe" unique_id=1572633645]
 transform = Transform3D(-0.003289022, -0.9999946, 0, 0.9999946, -0.003289022, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_3fcsw")
+
+[node name="TimerPowerUp" type="Timer" parent="." unique_id=1186917479]
+one_shot = true
