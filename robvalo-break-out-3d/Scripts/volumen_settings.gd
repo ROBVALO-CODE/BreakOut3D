@@ -26,7 +26,15 @@ func _ready() -> void:
 	master_slider.value_changed.connect(_on_master_changed)
 	music_slider.value_changed.connect(_on_music_changed)
 	sfx_slider.value_changed.connect(_on_sfx_changed)
-
+	sfx_slider.drag_ended.connect(_on_sfx_drag_ended)
+	
+	sfx_preview_player = AudioStreamPlayer.new()
+	sfx_preview_player.bus = "SFX"
+	sfx_preview_player.stream = SFX_PREVIEW_SOUND
+	add_child(sfx_preview_player)
+	
+	
+	
 
 func _on_master_changed(value: float) -> void:
 	_set_bus_volume(master_bus, value)
@@ -42,6 +50,9 @@ func _on_sfx_changed(value: float) -> void:
 	_set_bus_volume(sfx_bus, value)
 	_save_settings()
 
+func _on_sfx_drag_ended(value_changed: bool) -> void:
+	if value_changed:
+		sfx_preview_player.play()
 
 func _set_bus_volume(bus_index: int, linear_value: float) -> void:
 	if bus_index == -1:
