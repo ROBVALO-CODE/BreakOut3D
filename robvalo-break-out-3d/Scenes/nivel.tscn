@@ -93,6 +93,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4370933, 1.3991024, -12.451
 
 [node name="BlockDestructible5" parent="Bloques" unique_id=890436829 instance=ExtResource("2_bj26p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4709144, 1.3991024, -12.45162)
+tiene_power_up = true
 
 [node name="BlockDestructible6" parent="Bloques" unique_id=1890478924 instance=ExtResource("2_bj26p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.396665, 1.3991024, -12.45162)
