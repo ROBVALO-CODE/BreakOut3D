@@ -40,11 +40,9 @@ func _on_master_changed(value: float) -> void:
 	_set_bus_volume(master_bus, value)
 	_save_settings()
 
-
 func _on_music_changed(value: float) -> void:
 	_set_bus_volume(music_bus, value)
 	_save_settings()
-
 
 func _on_sfx_changed(value: float) -> void:
 	_set_bus_volume(sfx_bus, value)
