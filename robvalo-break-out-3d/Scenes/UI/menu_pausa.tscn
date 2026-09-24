@@ -133,7 +133,8 @@ offset_top = 140.0
 offset_right = 141.0
 offset_bottom = 163.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "INITIAL MENU"
+text = "INITIAL MENU
+"
 
 [node name="resume_button" type="Button" parent="." unique_id=459982554]
 layout_mode = 1
